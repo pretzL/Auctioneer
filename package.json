@@ -41,6 +41,7 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
+    "tailwindcss": "^3.2.4",
     "vite": "^3.2.4"
   },
   "lint-staged": {
