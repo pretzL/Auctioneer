@@ -16,7 +16,7 @@
     <title>Auctioneer</title>
   </head>
   <body class="bg-gray-100 max-w-screen-2xl mx-auto my-0">
-    <header class="w-full">
+    <header class="w-full absolute z-10 max-w-screen-2xl">
       <nav class="navbar bg-main-green rounded w-11/12 mx-auto my-0">
         <div class="flex-1">
           <a class="btn btn-ghost normal-case text-xl">Auctioneer</a>
@@ -68,7 +68,78 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <div class="carousel w-full">
+        <div id="slide1" class="carousel-item relative w-full">
+          <img src="https://placeimg.com/800/200/arch" class="w-full" />
+          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide4" class="btn btn-circle">❮</a>
+            <a href="#slide2" class="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="slide2" class="carousel-item relative w-full">
+          <img src="https://placeimg.com/800/200/arch" class="w-full" />
+          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" class="btn btn-circle">❮</a>
+            <a href="#slide3" class="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="slide3" class="carousel-item relative w-full">
+          <img src="https://placeimg.com/800/200/arch" class="w-full" />
+          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide2" class="btn btn-circle">❮</a>
+            <a href="#slide4" class="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="slide4" class="carousel-item relative w-full">
+          <img src="https://placeimg.com/800/200/arch" class="w-full" />
+          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide3" class="btn btn-circle">❮</a>
+            <a href="#slide1" class="btn btn-circle">❯</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3 w-11/12 flex flex-col mx-auto my-0">
+        <section>
+          <h2>Categories</h2>
+        </section>
+        <section>
+          <h2>Recent Listings</h2>
+          <div id="cards-container" class="flex flex-row gap-4">
+            <div class="card w-96 bg-base-100 shadow-xl image-full">
+              <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Shoes!</h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div class="card-actions justify-end">
+                  <button class="btn btn-primary">Buy Now</button>
+                </div>
+              </div>
+            </div>
+            <div class="card w-96 bg-base-100 shadow-xl image-full">
+              <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Shoes!</h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div class="card-actions justify-end">
+                  <button class="btn btn-primary">Buy Now</button>
+                </div>
+              </div>
+            </div>
+            <div class="card w-96 bg-base-100 shadow-xl image-full">
+              <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Shoes!</h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div class="card-actions justify-end">
+                  <button class="btn btn-primary">Buy Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
     <footer class="p-4 bg-white w-full sm:p-6 dark:bg-gray-900">
       <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
