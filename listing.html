@@ -71,8 +71,8 @@
       </nav>
     </header>
     <main class="min-h-screen mt-8 w-10/12 mx-auto my-0">
-      <div class="grid grid-cols-4 grid-rows-2 gap-8 w-full">
-        <div class="box row-span-5 col-span-2 shadow-lg">
+      <div class="grid grid-cols-1 grid-rows-2 gap-8 w-full md:grid-cols-4">
+        <div class="box md:row-span-5 md:col-span-2 shadow-lg">
           <div id="carousel-container" class="carousel w-full rounded">
             <div id="slide1" class="carousel-item relative w-full">
               <div class="flex justify-center items-center mb-4 w-full h-full animate-pulse bg-gray-300 rounded dark:bg-gray-700">
@@ -122,7 +122,7 @@
             </div>
           </div>
         </div>
-        <div id="seller-info" class="box row-start-1 col-start-3 col-span-2 bg-main-green text-white p-4 shadow-xl">
+        <div id="seller-info" class="box md:row-start-1 md:col-start-3 md:col-span-2 bg-main-green text-white p-4 shadow-xl">
           <div role="status" class="max-w-sm animate-pulse flex gap-4 items-center">
             <svg class="w-28 h-28 text-gray-200" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -139,7 +139,7 @@
             </div>
           </div>
         </div>
-        <div id="current-bid" class="box row-start-2 col-start-3 col-span-2 bg-main-green text-white p-4 shadow-xl">
+        <div id="current-bid" class="box md:row-start-2 md:col-start-3 md:col-span-2 bg-main-green text-white p-4 shadow-xl">
           <div role="status" class="max-w-sm animate-pulse">
             <div class="h-4.5 bg-sky-100 rounded-full w-48 mb-4"></div>
             <div class="h-3 bg-sky-100 rounded-full max-w-[360px] mb-2.5"></div>
@@ -147,7 +147,7 @@
             <span class="sr-only">Loading...</span>
           </div>
         </div>
-        <div id="bidders-container" class="box row-span-6 col-span-2 text-black flex flex-col gap-4">
+        <div id="bidders-container" class="box md:row-span-6 md:col-span-2 text-black flex flex-col gap-4">
           <div id="bidder" class="bg-light-green px-2 py-2 rounded shadow-xl">
             <div role="status" class="animate-pulse flex items-center gap-2 w-full">
               <svg class="w-12 h-12 text-gray-200" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -203,7 +203,7 @@
         <div id="bid-timer" class="box flex items-center justify-center text-black">
           <span class="countdown font-mono text-2xl"> <span style="--value: 10"></span>h <span style="--value: 24"></span>m <span style="--value: 50"></span>s </span>
         </div>
-        <div id="listing-description" class="box row-span-2 col-span-2">
+        <div id="listing-description" class="box md:row-span-2 md:col-span-2">
           <h1 id="page-h1" class="mb-4 text-lg font-semibold text-black">Listing</h1>
           <div id="listing-info" class="text-black">
             This is a cool listing made out of 100% organically farmed memes. Get your fresh memes at a discounted price. They're juicy, tasty and spicy. Pulled right out of the
