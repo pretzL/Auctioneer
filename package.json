@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css --watch & live-server",
-    "watch": "postcss --watch src/css/tailwind.css -o dist/tailwind.css",
     "test": "npm run test-unit && npm run test-e2e-cli",
     "test-unit": "jest",
     "test-e2e": "cypress open",
