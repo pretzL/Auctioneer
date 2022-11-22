@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css --watch & live-server",
+    "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css",
+    "watch": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css --watch & live-server",
     "test": "npm run test-unit && npm run test-e2e-cli",
     "test-unit": "jest",
     "test-e2e": "cypress open",
