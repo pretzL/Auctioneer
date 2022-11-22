@@ -41,7 +41,7 @@
             </div>
           </div>
           <div>
-            <label for="my-modal" class="btn btn-ghost btn-circle">
+            <label for="create-listing-modal" class="btn btn-ghost btn-circle">
               <div class="w-10 rounded-full flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-plus-circle h-7 w-7" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -58,13 +58,9 @@
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
               <li>
-                <a class="justify-between">
-                  Profile
-                  <span class="badge">New</span>
-                </a>
+                <label for="login-modal" class="btn btn-ghost btn-circle w-full">Login</label>
               </li>
-              <li><a>Settings</a></li>
-              <li><a>Logout</a></li>
+              <li><label for="register-modal" class="btn btn-ghost btn-circle w-full">Register</label></li>
             </ul>
           </div>
         </div>
@@ -73,9 +69,9 @@
     <main class="min-h-screen mt-8 w-10/12 mx-auto my-0">
       <div class="grid grid-cols-1 grid-rows-2 gap-8 w-full md:grid-cols-4">
         <div class="box md:row-span-5 md:col-span-2 shadow-lg">
-          <div id="carousel-container" class="carousel w-full rounded">
+          <div id="carousel-container" class="carousel w-full h-full rounded">
             <div id="slide1" class="carousel-item relative w-full">
-              <div class="flex justify-center items-center mb-4 w-full h-full animate-pulse bg-gray-300 rounded dark:bg-gray-700">
+              <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded dark:bg-gray-700">
                 <svg class="w-12 h-12 text-gray-200 dark:text-gray-600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
                   <path
                     d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
@@ -247,13 +243,108 @@
           </div>
         </div>
       </section>
-      <input type="checkbox" id="my-modal" class="modal-toggle" />
+      <!--CREATE LISTING MODAL-->
+      <input type="checkbox" id="create-listing-modal" class="modal-toggle" />
       <div class="modal">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
-          <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-          <div class="modal-action">
-            <label for="my-modal" class="btn">Yay!</label>
+        <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
+          <!-- component -->
+          <section class="flex w-[30rem] flex-col space-y-10">
+            <h4 class="text-center text-4xl font-medium">Create a listing!</h4>
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="text" placeholder="Title" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <textarea
+                type="text"
+                placeholder="Description"
+                rows="4"
+                class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                style="resize: none"
+              ></textarea>
+            </div>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="text" placeholder="Tags, separate by comma" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="text" placeholder="Image URL" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <label for="date-picker" class="w-full border-none bg-transparent outline-none italic">End auction by</label>
+              <input type="datetime-local" id="date-picker" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <button class="transform rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">Create</button>
+          </section>
+          <div class="modal-action absolute top-4 right-4 mt-0">
+            <label for="create-listing-modal" class="btn">X</label>
+          </div>
+        </div>
+      </div>
+      <!--LOGIN MODAL-->
+      <input type="checkbox" id="login-modal" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
+          <!-- component -->
+          <section class="flex w-[30rem] flex-col space-y-10">
+            <h4 class="text-center text-4xl font-medium">Log In</h4>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="text" placeholder="Email" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="password" placeholder="Password" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <button class="transform rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">LOG IN</button>
+
+            <a href="#" class="transform text-center font-semibold text-gray-500 duration-300 hover:text-gray-300">FORGOT PASSWORD?</a>
+
+            <p class="text-center text-lg">
+              No account?
+              <label for="register-modal" class="font-medium text-main-green underline-offset-4 hover:underline">Create One</label>
+            </p>
+          </section>
+          <div class="modal-action absolute top-4 right-4 mt-0">
+            <label for="login-modal" class="btn">X</label>
+          </div>
+        </div>
+      </div>
+      <!--REGISTER MODAL-->
+      <input type="checkbox" id="register-modal" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
+          <!-- component -->
+          <section class="flex w-[30rem] flex-col space-y-10">
+            <h4 class="text-center text-4xl font-medium">Register</h4>
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="text" placeholder="Name" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="text" placeholder="Email" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="password" placeholder="Password" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="password" placeholder="Avatar" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+              <input type="password" placeholder="Banner" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+            </div>
+
+            <button class="transform rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">Register</button>
+          </section>
+          <div class="modal-action absolute top-4 right-4 mt-0">
+            <label for="register-modal" class="btn">X</label>
           </div>
         </div>
       </div>
