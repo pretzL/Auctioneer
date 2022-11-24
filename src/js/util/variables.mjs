@@ -22,3 +22,12 @@ export const loginCheck = document.querySelector("#login-modal");
 // Header elements
 export const userDropdown = document.querySelector("#user-dropdown");
 export const headerProfileImg = document.querySelector("#header-profile-img");
+
+// Page elements
+export const cardsContainer = document.querySelector("#cards-container");
+
+// Profile page elements
+export const profileInfo = document.querySelector("#user-info");
+export const userBids = document.querySelector("#user-bids-content");
+export const bidsTitle = document.querySelector("#bids-title");
+export const listingsTitle = document.querySelector("#user-listings");
