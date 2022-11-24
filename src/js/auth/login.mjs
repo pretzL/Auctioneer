@@ -48,6 +48,7 @@ export async function login(evt) {
         name: json.name,
         email: json.email,
         avatar: json.avatar,
+        credits: json.credits,
       });
 
       // Save authentication token
