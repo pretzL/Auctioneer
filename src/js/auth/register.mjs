@@ -1,4 +1,4 @@
-import { API_BASE_URL, API_REGISTER_URL, errorContainer, loginCheck, registerCheck } from "../util/variables.mjs";
+import { API_BASE_URL, API_REGISTER_URL, loginCheck, registerCheck } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { validateEmail } from "../components/validateEmail.mjs";
@@ -16,6 +16,9 @@ import { validateAvatar } from "../components/validateAvatar.mjs";
  */
 export async function register(evt) {
   evt.preventDefault();
+
+  // Grab error container
+  const errorContainer = evt.target.querySelector(".error-container");
 
   // Assign the inputs from the form to variables
   const [userName, email, password, avatar] = evt.target.elements;
@@ -51,8 +54,8 @@ export async function register(evt) {
 
       const json = await response.json();
 
-      if (json.message) {
-        errorContainer.innerHTML = errorMessage(json.message);
+      if (json.errors) {
+        errorContainer.innerHTML = errorMessage(json.errors[0].message);
       } else {
         errorContainer.innerHTML = successMessage("Registration");
         timeout(1000);

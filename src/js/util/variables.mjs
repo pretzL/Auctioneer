@@ -9,9 +9,6 @@ export const API_LOGIN_URL = "/api/v1/auction/auth/login";
 export const listingsParams = "?_seller=true&_bids=true";
 export const profileParams = "?_listings=true";
 
-// Error
-export const errorContainer = document.querySelector(".error-container");
-
 // Forms
 export const createListingForm = document.querySelector("#create-listing-form");
 export const registerForm = document.querySelector("#register-form");
@@ -25,4 +22,3 @@ export const loginCheck = document.querySelector("#login-modal");
 // Header elements
 export const userDropdown = document.querySelector("#user-dropdown");
 export const headerProfileImg = document.querySelector("#header-profile-img");
-export const logOutButton = document.querySelector("#logout-button");

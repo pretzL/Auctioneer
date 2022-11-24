@@ -18,3 +18,10 @@ const loggedIn = isUserLoggedIn();
 if (loggedIn) {
   buildHeader();
 }
+
+// Router-ish
+console.log(location.href);
+
+if (location.href.includes("profile.html")) {
+  console.log("You're on profile page!");
+}

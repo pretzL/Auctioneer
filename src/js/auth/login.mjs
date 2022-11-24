@@ -1,4 +1,4 @@
-import { API_BASE_URL, API_LOGIN_URL, errorContainer, loginCheck } from "../util/variables.mjs";
+import { API_BASE_URL, API_LOGIN_URL } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { timeout } from "../util/timeout.mjs";
@@ -15,6 +15,9 @@ import * as storage from "../storage/index.mjs";
  */
 export async function login(evt) {
   evt.preventDefault();
+
+  // Grab error container
+  const errorContainer = evt.target.querySelector(".error-container");
 
   // Assign the inputs from the form to variables
   const [email, password] = evt.target.elements;
@@ -37,8 +40,8 @@ export async function login(evt) {
 
     const json = await response.json();
 
-    if (json.message) {
-      errorContainer.innerHTML = errorMessage(json.message);
+    if (json.errors) {
+      errorContainer.innerHTML = errorMessage(json.errors[0].message);
     } else {
       errorContainer.style.display = "none";
       errorContainer.innerHTML = successMessage("Login");
