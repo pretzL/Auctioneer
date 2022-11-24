@@ -20,21 +20,24 @@ export async function buildProfile(data) {
   // Handle wins
   const wins = userData.wins;
 
-  for (let i = 0; i < wins.length; i++) {
-    if (i === 3) {
-      break;
-    }
-
-    if (wins.length === 0) {
-      userBids.innerHTML = errorMessage("User has no wins");
-    } else {
+  if (wins.length === 0) {
+    userBids.innerHTML = errorMessage("User has no wins");
+  } else {
+    for (let i = 0; i < wins.length; i++) {
+      if (i === 3) {
+        break;
+      }
       userBids.innerHTML += bidListHTML(wins[i]);
     }
   }
 
   // Handle user listing cards
   const listings = userData.listings;
-  listings.forEach((listing) => {
-    cardsContainer.innerHTML += cardHTML(listing);
-  });
+  if (listings.length === 0) {
+    cardsContainer.innerHTML = errorMessage("User has no listings");
+  } else {
+    listings.forEach((listing) => {
+      cardsContainer.innerHTML += cardHTML(listing);
+    });
+  }
 }
