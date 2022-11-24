@@ -5,7 +5,7 @@ export const cardHTML = (data) => {
   }
   return `
   <figure class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px]">
-    <a href="./listing?id=${data.id}">
+    <a href="./listing.html?id=${data.id}">
       <img class="rounded w-full h-full brightness-75" src="${data.media[0]}" alt="Image of ${data.title}">
     </a>
     <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
