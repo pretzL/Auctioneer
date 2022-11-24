@@ -67,7 +67,7 @@
       </nav>
     </header>
     <main class="min-h-screen mt-8 w-10/12 mx-auto my-0">
-      <div class="flex flex-col lg:flex-row lg:justify-between lg:gap-24">
+      <div class="flex flex-col lg:flex-row lg:justify-between lg:gap-24 min-h-[300px]">
         <div id="user-info" class="bg-main-green p-4 rounded text-white flex shadow-xl w-full">
           <div id="info-text" class="w-full">
             <div class="w-full animate-pulse">
@@ -88,7 +88,7 @@
             </svg>
           </div>
         </div>
-        <div id="user-bids">
+        <div id="user-bids" class="min-w-[400px]">
           <h2 id="bids-title" class="my-4 text-lg font-semibold text-black">Eric's Bids</h2>
           <div id="user-bids-content" class="flex flex-col gap-4">
             <div class="bg-light-green px-2 py-2 rounded shadow-xl">
@@ -157,8 +157,8 @@
           </div>
         </div>
         <div id="cards-container" class="grid grid-flow-row grid-cols-1 justify-between md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="card bg-base-100 shadow-xl image-full">
-            <figure>
+          <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
+            <figure class="w-full h-full">
               <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
                 <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
                   <path
@@ -167,16 +167,16 @@
                 </svg>
               </div>
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+            <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
+              <div class="w-full">
+                <div class="h-3.5 bg-sky-100 rounded-full w-48 mb-2"></div>
+                <div class="h-2.5 bg-sky-100 rounded-full max-w-[360px]"></div>
               </div>
-            </div>
+              <div class="h-5 bg-sky-100 rounded-full w-24 mt-4"></div>
+            </figcaption>
           </div>
-          <div class="card bg-base-100 shadow-xl image-full">
-            <figure>
+          <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
+            <figure class="w-full h-full">
               <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
                 <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
                   <path
@@ -185,16 +185,16 @@
                 </svg>
               </div>
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+            <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
+              <div class="w-full">
+                <div class="h-3.5 bg-sky-100 rounded-full w-48 mb-2"></div>
+                <div class="h-2.5 bg-sky-100 rounded-full max-w-[360px]"></div>
               </div>
-            </div>
+              <div class="h-5 bg-sky-100 rounded-full w-24 mt-4"></div>
+            </figcaption>
           </div>
-          <div class="card bg-base-100 shadow-xl image-full">
-            <figure>
+          <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
+            <figure class="w-full h-full">
               <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
                 <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
                   <path
@@ -203,13 +203,13 @@
                 </svg>
               </div>
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+            <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
+              <div class="w-full">
+                <div class="h-3.5 bg-sky-100 rounded-full w-48 mb-2"></div>
+                <div class="h-2.5 bg-sky-100 rounded-full max-w-[360px]"></div>
               </div>
-            </div>
+              <div class="h-5 bg-sky-100 rounded-full w-24 mt-4"></div>
+            </figcaption>
           </div>
         </div>
       </section>
