@@ -23,5 +23,4 @@ function cooldown(ms) {
  */
 export async function timeout(time) {
   await cooldown(time);
-  location.reload();
 }
