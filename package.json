@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css --watch & live-server",
+    "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css",
+    "watch": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css --watch & live-server",
     "test": "npm run test-unit && npm run test-e2e-cli",
     "test-unit": "jest",
     "test-e2e": "cypress open",
@@ -46,6 +47,7 @@
     "bootstrap-icons": "^1.10.2",
     "daisyui": "^2.41.0",
     "dayjs": "^1.11.6",
+    "flowbite": "^1.5.4",
     "tailwindcss": "^3.2.4",
     "vite": "^3.2.4"
   },
