@@ -3,10 +3,14 @@
 import { login } from "./auth/login.mjs";
 import { register } from "./auth/register.mjs";
 import { buildHeader } from "./components/header.mjs";
-import { loginForm, registerForm } from "./util/variables.mjs";
+import { cardsContainer, loginForm, registerForm, API_BASE_URL, API_LISTINGS_URL, listingsParams, carouselContainer } from "./util/variables.mjs";
 import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
 import { buildProfile } from "./profiles/build.mjs";
 import * as storage from "./storage/index.mjs";
+import { getListings } from "./listings/read.mjs";
+import { options } from "./util/options.mjs";
+import { cardHTML } from "./templates/card.mjs";
+import { carouselHTML } from "./templates/carouselCard.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -23,6 +27,27 @@ if (loggedIn) {
 
 // Router-ish
 console.log(location.href);
+
+if (location.href.includes("index.html")) {
+  const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
+
+  cardsContainer.innerHTML = "";
+  carouselContainer.innerHTML = "";
+
+  for (let i = 0; i < data.length; i++) {
+    if (i === 18) {
+      break;
+    }
+    cardsContainer.innerHTML += cardHTML(data[i]);
+  }
+
+  for (let c = 0; c < data.length; c++) {
+    if (c === 4) {
+      break;
+    }
+    carouselContainer.innerHTML += carouselHTML(data[c], c);
+  }
+}
 
 if (location.href.includes("profile.html")) {
   // Get user info
