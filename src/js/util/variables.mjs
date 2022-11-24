@@ -25,3 +25,4 @@ export const loginCheck = document.querySelector("#login-modal");
 // Header elements
 export const userDropdown = document.querySelector("#user-dropdown");
 export const headerProfileImg = document.querySelector("#header-profile-img");
+export const logOutButton = document.querySelector("#logout-button");

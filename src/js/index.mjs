@@ -14,6 +14,7 @@ loginForm.addEventListener("submit", login);
 
 // Header
 const loggedIn = isUserLoggedIn();
+
 if (loggedIn) {
   buildHeader();
 }
