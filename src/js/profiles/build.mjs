@@ -8,6 +8,10 @@ export async function buildProfile(data) {
   // Get user profile
   const userData = await getProfile(data);
 
+  // Clear containers
+  userBids.innerHTML = "";
+  cardsContainer.innerHTML = "";
+
   // Add main user information
   profileInfo.innerHTML = userInfoCard(userData);
   bidsTitle.innerHTML = `${userData.name}'s Bids`;
