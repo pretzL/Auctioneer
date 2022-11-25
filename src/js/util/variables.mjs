@@ -32,3 +32,11 @@ export const profileInfo = document.querySelector("#user-info");
 export const userBids = document.querySelector("#user-bids-content");
 export const bidsTitle = document.querySelector("#bids-title");
 export const listingsTitle = document.querySelector("#user-listings");
+
+// Listing page elements
+export const listingTitle = document.querySelector("#listing-h1");
+export const listingDesc = document.querySelector("#listing-desc");
+export const sellerInfo = document.querySelector("#seller-info");
+export const currentBid = document.querySelector("#current-bid");
+export const biddersContainer = document.querySelector("#bidders-container");
+export const bidTimer = document.querySelector("#bid-timer");
