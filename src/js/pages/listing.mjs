@@ -1,11 +1,23 @@
 import { sortAmountAsc } from "../components/filters/amountFilter.mjs";
+import { timeUntil } from "../components/timeUntil.mjs";
 import { getListings } from "../listings/read.mjs";
 import { bidListHTML } from "../templates/bidList.mjs";
 import { carouselCardsHTML } from "../templates/carouselCardsContainer.mjs";
 import { buildBidInfo } from "../templates/currentBid.mjs";
 import { buildSellerInfo } from "../templates/sellerInfo.mjs";
 import { options } from "../util/options.mjs";
-import { API_BASE_URL, API_LISTINGS_URL, bidHistory, carouselCardsContainer, currentBid, listingDesc, listingsParams, listingTitle, sellerInfo } from "../util/variables.mjs";
+import {
+  API_BASE_URL,
+  API_LISTINGS_URL,
+  bidHistory,
+  bidTimer,
+  carouselCardsContainer,
+  currentBid,
+  listingDesc,
+  listingsParams,
+  listingTitle,
+  sellerInfo,
+} from "../util/variables.mjs";
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
@@ -53,6 +65,10 @@ export async function buildListing(id) {
     }
     bidHistory.innerHTML += bidListHTML(bidders[i]);
   }
+
+  // Bid Timer
+  const timer = timeUntil(data.endsAt);
+  bidTimer.innerHTML = `Ends ${timer}`;
 
   // Suggested listings
   // Add fetch on tags later?
