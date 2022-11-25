@@ -19,7 +19,7 @@ export const carouselHTML = (data, number) => {
   return `
       <div id="slide${number}" class="carousel-item relative w-full">
         <div class="flex justify-center items-center w-full h-[500px] bg-gray-300">
-          <a href="./listing?id=${data.id}" class="w-full h-full">
+          <a href="./listing.html?id=${data.id}" class="w-full h-full">
             <img class="rounded w-full h-full bg-gray-800 brightness-75" src="${data.media[0]}" alt="Image of ${data.title}">
             <div class="absolute w-full left-0 right-0 top-96 flex flex-col gap-4 text-white ml-36">
               <h2 class="card-title">${data.title}</h2>

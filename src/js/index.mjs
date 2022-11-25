@@ -11,6 +11,7 @@ import { getListings } from "./listings/read.mjs";
 import { options } from "./util/options.mjs";
 import { cardHTML } from "./templates/card.mjs";
 import { carouselHTML } from "./templates/carouselCard.mjs";
+import { buildListing } from "./pages/listing.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -30,6 +31,7 @@ console.log(location.href);
 
 if (location.href.includes("index.html")) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
+  console.log(data);
 
   cardsContainer.innerHTML = "";
   carouselContainer.innerHTML = "";
@@ -64,5 +66,20 @@ if (location.href.includes("profile.html")) {
     location.href = `./profile.html?name=${userInfo.name}`;
   } else {
     buildProfile(name);
+  }
+}
+
+if (location.href.includes("listing.html")) {
+  // QUERY STRINGS
+  const queryString = document.location.search;
+
+  const params = new URLSearchParams(queryString);
+
+  const id = params.get("id");
+
+  if (!id) {
+    location.href = `./index.html`;
+  } else {
+    buildListing(id);
   }
 }

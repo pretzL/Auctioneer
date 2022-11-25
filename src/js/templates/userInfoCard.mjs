@@ -8,8 +8,6 @@ export const userInfoCard = (data) => {
       <p>Listings: ${data._count.listings}</p>
     </div>
   </div>
-  <div class="flex gap-2 w-24 h-24">
-    <img src="${data.avatar}" class="w-full h-full rounded-full" alt="${data.name}'s profile image"/>
-  </div>
+  <img src="${data.avatar}" class="rounded-full w-24 h-24" alt="${data.name}'s profile image"/>
   `;
 };
