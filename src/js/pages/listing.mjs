@@ -1,3 +1,4 @@
+import { createBid } from "../bid/create.mjs";
 import { sortAmountAsc } from "../components/filters/amountFilter.mjs";
 import { timeUntil } from "../components/timeUntil.mjs";
 import { getListings } from "../listings/read.mjs";
@@ -21,7 +22,6 @@ import {
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
-  console.log(data);
 
   // export const bidTimer = document.querySelector("#bid-timer");
 
@@ -52,10 +52,11 @@ export async function buildListing(id) {
 
   // Current bid
   currentBid.innerHTML = buildBidInfo(data);
+  const createBidForm = document.querySelector("#create-bid-form");
+  createBidForm.addEventListener("submit", createBid);
 
   // Bid history container
   const bidders = sortAmountAsc(data.bids);
-  console.log(bidders);
 
   bidHistory.innerHTML = "";
 

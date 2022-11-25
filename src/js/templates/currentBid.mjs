@@ -6,11 +6,13 @@ export const buildBidInfo = (data) => {
   let body;
   let amount = 0;
 
-  if (data.bids.length <= 0) {
+  if (data.bids.length === 0) {
     body = errorMessage("No bids yet");
   } else {
     const bidders = sortAmountAsc(data.bids);
     const dateFix = timeAgo(bidders[0].created);
+
+    amount = bidders[0].amount;
 
     body = `
       <div class="flex flex-col gap-2 w-full">
@@ -28,10 +30,11 @@ export const buildBidInfo = (data) => {
             <label class="label">
               <span class="label-text text-white">Enter amount</span>
             </label>
-            <div class="input-group">
+            <form id="create-bid-form" class="input-group">
+              <input type="hidden" class="hidden" value="${data.id}">
               <input type="number" value="${amount + 10}" class="input input-bordered text-black" />
               <button id="bid-button" class="btn btn-square bg-dark-green text-white">Bid</button>
-            </div>
+            </form>
           </div>
         </div>
         `;
