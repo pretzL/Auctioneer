@@ -58,7 +58,7 @@ export async function register(evt) {
         errorContainer.innerHTML = errorMessage(json.errors[0].message);
       } else {
         errorContainer.innerHTML = successMessage("Registration");
-        timeout(1000);
+        timeout(3000);
         registerCheck.checked = false;
         loginCheck.checked = true;
       }
