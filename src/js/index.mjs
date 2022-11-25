@@ -3,7 +3,7 @@
 import { login } from "./auth/login.mjs";
 import { register } from "./auth/register.mjs";
 import { buildHeader } from "./components/header.mjs";
-import { cardsContainer, loginForm, registerForm, API_BASE_URL, API_LISTINGS_URL, listingsParams, carouselContainer } from "./util/variables.mjs";
+import { cardsContainer, loginForm, registerForm, API_BASE_URL, API_LISTINGS_URL, listingsParams, carouselContainer, createListingForm } from "./util/variables.mjs";
 import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
 import { buildProfile } from "./profiles/build.mjs";
 import * as storage from "./storage/index.mjs";
@@ -12,6 +12,7 @@ import { options } from "./util/options.mjs";
 import { cardHTML } from "./templates/card.mjs";
 import { carouselHTML } from "./templates/carouselCard.mjs";
 import { buildListing } from "./pages/listing.mjs";
+import { createListing } from "./listings/create.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -24,6 +25,11 @@ const loggedIn = isUserLoggedIn();
 
 if (loggedIn) {
   buildHeader();
+}
+
+// Create Listing form
+if (loggedIn) {
+  createListingForm.addEventListener("submit", createListing);
 }
 
 // Router-ish
