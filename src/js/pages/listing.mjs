@@ -63,6 +63,9 @@ export async function buildListing(id) {
     if (i === 0) {
       continue;
     }
+    if (i === 3) {
+      break;
+    }
     bidHistory.innerHTML += bidListHTML(bidders[i]);
   }
 
