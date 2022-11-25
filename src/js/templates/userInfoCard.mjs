@@ -8,6 +8,6 @@ export const userInfoCard = (data) => {
       <p>Listings: ${data._count.listings}</p>
     </div>
   </div>
-    <img src="${data.avatar}" class="rounded-full w-24 h-24" alt="${data.name}'s profile image"/>
+  <img src="${data.avatar}" class="rounded-full w-24 h-24" alt="${data.name}'s profile image"/>
   `;
 };
