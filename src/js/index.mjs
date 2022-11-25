@@ -13,6 +13,7 @@ import { cardHTML } from "./templates/card.mjs";
 import { carouselHTML } from "./templates/carouselCard.mjs";
 import { buildListing } from "./pages/listing.mjs";
 import { createListing } from "./listings/create.mjs";
+import { sortTimeAsc } from "./components/filters/timeFilter.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -25,10 +26,6 @@ const loggedIn = isUserLoggedIn();
 
 if (loggedIn) {
   buildHeader();
-}
-
-// Create Listing form
-if (loggedIn) {
   createListingForm.addEventListener("submit", createListing);
 }
 
@@ -39,14 +36,16 @@ if (location.href.includes("index.html")) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
   console.log(data);
 
+  const sorted = sortTimeAsc(data);
+
   cardsContainer.innerHTML = "";
   carouselContainer.innerHTML = "";
 
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < sorted.length; i++) {
     if (i === 18) {
       break;
     }
-    cardsContainer.innerHTML += cardHTML(data[i]);
+    cardsContainer.innerHTML += cardHTML(sorted[i]);
   }
 
   for (let c = 0; c < data.length; c++) {
