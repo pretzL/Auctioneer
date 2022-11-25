@@ -6,7 +6,7 @@ export const bidListHTML = (bid) => {
           <p>${bid.bidderName}</p>
           <p>${bid.created}</p>
         </div>
-        <div class="h-5 bg-dark-green rounded-full w-24">${bid.amount}</div>
+        <div class="bg-dark-green rounded w-24 text-white text-center p-1">${bid.amount}</div>
       </div>
     </div>
     `;
