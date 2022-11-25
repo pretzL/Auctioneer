@@ -40,3 +40,4 @@ export const sellerInfo = document.querySelector("#seller-info");
 export const currentBid = document.querySelector("#current-bid");
 export const bidHistory = document.querySelector("#bid-history");
 export const bidTimer = document.querySelector("#bid-timer");
+export const carouselCardsContainer = document.querySelector("#carousel-cards-container");

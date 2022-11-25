@@ -31,6 +31,7 @@ console.log(location.href);
 
 if (location.href.includes("index.html")) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
+  console.log(data);
 
   cardsContainer.innerHTML = "";
   carouselContainer.innerHTML = "";
