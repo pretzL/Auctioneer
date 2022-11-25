@@ -82,7 +82,4 @@ if (location.href.includes("listing.html")) {
   } else {
     buildListing(id);
   }
-  const today = new Date();
-
-  console.log(today.toISOString());
 }
