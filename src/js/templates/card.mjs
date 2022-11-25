@@ -1,7 +1,10 @@
+import { sortAmountAsc } from "../components/filters/amountFilter.mjs";
+
 export const cardHTML = (data) => {
   let price = 0;
   if (data.bids[0]) {
-    price = data.bids[0].amount;
+    const sorted = sortAmountAsc(data.bids);
+    price = sorted[0].amount;
   }
   return `
       <figure class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px]">
