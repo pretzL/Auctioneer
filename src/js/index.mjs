@@ -3,7 +3,7 @@
 import { login } from "./auth/login.mjs";
 import { register } from "./auth/register.mjs";
 import { buildHeader } from "./components/header.mjs";
-import { cardsContainer, loginForm, registerForm, API_BASE_URL, API_LISTINGS_URL, listingsParams, carouselContainer } from "./util/variables.mjs";
+import { cardsContainer, loginForm, registerForm, API_BASE_URL, API_LISTINGS_URL, listingsParams, carouselContainer, createListingForm } from "./util/variables.mjs";
 import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
 import { buildProfile } from "./profiles/build.mjs";
 import * as storage from "./storage/index.mjs";
@@ -12,6 +12,8 @@ import { options } from "./util/options.mjs";
 import { cardHTML } from "./templates/card.mjs";
 import { carouselHTML } from "./templates/carouselCard.mjs";
 import { buildListing } from "./pages/listing.mjs";
+import { createListing } from "./listings/create.mjs";
+import { sortTimeAsc } from "./components/filters/timeFilter.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -24,6 +26,7 @@ const loggedIn = isUserLoggedIn();
 
 if (loggedIn) {
   buildHeader();
+  createListingForm.addEventListener("submit", createListing);
 }
 
 // Router-ish
@@ -33,14 +36,16 @@ if (location.href.includes("index.html")) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
   console.log(data);
 
+  const sorted = sortTimeAsc(data);
+
   cardsContainer.innerHTML = "";
   carouselContainer.innerHTML = "";
 
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < sorted.length; i++) {
     if (i === 18) {
       break;
     }
-    cardsContainer.innerHTML += cardHTML(data[i]);
+    cardsContainer.innerHTML += cardHTML(sorted[i]);
   }
 
   for (let c = 0; c < data.length; c++) {
