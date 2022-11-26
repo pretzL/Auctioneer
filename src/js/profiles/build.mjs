@@ -4,6 +4,7 @@ import { userInfoCard } from "../templates/userInfoCard.mjs";
 import { bidsTitle, cardsContainer, editMediaForm, listingsTitle, profileInfo, userBids } from "../util/variables.mjs";
 import { getProfile, getProfileListings } from "./read.mjs";
 import { updateProfile } from "./update.mjs";
+import * as storage from "../storage/index.mjs";
 
 export async function buildProfile(data) {
   // Get user profile
@@ -45,4 +46,17 @@ export async function buildProfile(data) {
 
   // Handle edit profile media
   editMediaForm.addEventListener("submit", updateProfile);
+
+  // Update saved data in localStorage when viewing own profile
+  const savedUser = storage.load("user");
+  if (userData.name === savedUser.name) {
+    console.log("It's a match!");
+    console.log(userData);
+    storage.save("user", {
+      avatar: userData.avatar,
+      credits: userData.credits,
+      email: userData.email,
+      name: userData.name,
+    });
+  }
 }
