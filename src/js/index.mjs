@@ -36,11 +36,9 @@ if (loggedIn) {
 searchBar.addEventListener("submit", handleQuery);
 
 // Router-ish
-console.log(location.href);
 
 if (location.href.includes("index.html")) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
-  console.log(data);
 
   const sorted = sortTimeAsc(data);
 

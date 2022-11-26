@@ -4,6 +4,6 @@ import { API_BASE_URL, API_PROFILE_URL, profileParams } from "../util/variables.
 export async function getProfile(name) {
   const response = await fetch(`${API_BASE_URL}${API_PROFILE_URL}/${name}${profileParams}`, options);
   const data = await response.json();
-  console.log(data);
+
   return data;
 }
