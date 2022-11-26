@@ -2,12 +2,11 @@ import { errorMessage } from "../components/error.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { userInfoCard } from "../templates/userInfoCard.mjs";
 import { bidsTitle, cardsContainer, listingsTitle, profileInfo, userBids } from "../util/variables.mjs";
-import { getProfile } from "./read.mjs";
+import { getProfile, getProfileListings } from "./read.mjs";
 
 export async function buildProfile(data) {
   // Get user profile
   const userData = await getProfile(data);
-  console.log(userData);
 
   // Clear containers
   userBids.innerHTML = "";
@@ -33,7 +32,7 @@ export async function buildProfile(data) {
   }
 
   // Handle user listing cards
-  const listings = userData.listings;
+  const listings = await getProfileListings(data);
 
   if (listings.length === 0) {
     cardsContainer.innerHTML = errorMessage("User has no listings");
