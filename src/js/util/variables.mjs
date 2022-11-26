@@ -26,6 +26,7 @@ export const headerProfileImg = document.querySelector("#header-profile-img");
 // Page elements
 export const cardsContainer = document.querySelector("#cards-container");
 export const carouselContainer = document.querySelector("#carousel-container");
+export const searchBar = document.querySelector("#search-bar");
 
 // Profile page elements
 export const profileInfo = document.querySelector("#user-info");

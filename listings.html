@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="Auctioneer, Auction, Marketplace, Sell, Buy, Gifts, Tailwind, JavaScript, Noroff" />
     <meta name="description" content="Buy your next hobby, sell your last!" />
-    <title>Home | Auctioneer</title>
+    <title>Listings | Auctioneer</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,8 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
   </head>
   <body class="bg-gray-100 max-w-screen-2xl mx-auto my-0">
-    <header class="w-full absolute z-10 max-w-screen-2xl">
-      <nav class="navbar fixed top-0 left-0 right-0 bg-main-green border-gray-200 px-2 sm:px-4 py-2.5 rounded w-11/12 mx-auto my-0">
+    <header class="w-full z-10 max-w-screen-2xl">
+      <nav class="navbar top-0 left-0 right-0 bg-main-green border-gray-200 px-2 sm:px-4 py-2.5 rounded w-11/12 mx-auto my-0">
         <div class="flex-1">
           <a href="./index.html" class="btn btn-ghost normal-case text-xl"><img src="./img/Logo.png" alt="Auctioneer Logo" class="w-28" /></a>
         </div>
@@ -74,68 +74,118 @@
       </nav>
     </header>
     <main class="min-h-screen">
-      <div id="carousel-container" class="carousel w-full h-[500px]">
-        <div id="slide1" class="carousel-item relative w-full">
-          <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
-            <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
-              <path
-                d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
-              />
-            </svg>
-          </div>
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide4" class="btn btn-circle">❮</a>
-            <a href="#slide2" class="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide2" class="carousel-item relative w-full">
-          <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
-            <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
-              <path
-                d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
-              />
-            </svg>
-          </div>
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide1" class="btn btn-circle">❮</a>
-            <a href="#slide3" class="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide3" class="carousel-item relative w-full">
-          <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
-            <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
-              <path
-                d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
-              />
-            </svg>
-          </div>
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide2" class="btn btn-circle">❮</a>
-            <a href="#slide4" class="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide4" class="carousel-item relative w-full">
-          <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
-            <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
-              <path
-                d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
-              />
-            </svg>
-          </div>
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide3" class="btn btn-circle">❮</a>
-            <a href="#slide1" class="btn btn-circle">❯</a>
-          </div>
-        </div>
-      </div>
       <div class="mt-3 w-11/12 flex flex-col mx-auto my-0 items-center">
-        <section>
-          <h1 class="text-black mb-4">Categories</h1>
-          <div class="h-36"></div>
-        </section>
         <section class="mb-8">
-          <h2 class="text-black mb-4">Recent Listings</h2>
+          <h1 id="listings-title" class="text-black text-xl mb-4">Listings</h1>
           <div id="cards-container" class="grid grid-flow-row grid-cols-1 justify-between md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
+              <figure class="w-full h-full">
+                <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
+                  <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                    <path
+                      d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
+                    />
+                  </svg>
+                </div>
+              </figure>
+              <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
+                <div class="w-full">
+                  <div class="h-3.5 bg-sky-100 rounded-full w-48 mb-2"></div>
+                  <div class="h-2.5 bg-sky-100 rounded-full max-w-[360px]"></div>
+                </div>
+                <div class="h-5 bg-sky-100 rounded-full w-24 mt-4"></div>
+              </figcaption>
+            </div>
+            <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
+              <figure class="w-full h-full">
+                <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
+                  <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                    <path
+                      d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
+                    />
+                  </svg>
+                </div>
+              </figure>
+              <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
+                <div class="w-full">
+                  <div class="h-3.5 bg-sky-100 rounded-full w-48 mb-2"></div>
+                  <div class="h-2.5 bg-sky-100 rounded-full max-w-[360px]"></div>
+                </div>
+                <div class="h-5 bg-sky-100 rounded-full w-24 mt-4"></div>
+              </figcaption>
+            </div>
+            <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
+              <figure class="w-full h-full">
+                <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
+                  <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                    <path
+                      d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
+                    />
+                  </svg>
+                </div>
+              </figure>
+              <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
+                <div class="w-full">
+                  <div class="h-3.5 bg-sky-100 rounded-full w-48 mb-2"></div>
+                  <div class="h-2.5 bg-sky-100 rounded-full max-w-[360px]"></div>
+                </div>
+                <div class="h-5 bg-sky-100 rounded-full w-24 mt-4"></div>
+              </figcaption>
+            </div>
+            <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
+              <figure class="w-full h-full">
+                <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
+                  <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                    <path
+                      d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
+                    />
+                  </svg>
+                </div>
+              </figure>
+              <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
+                <div class="w-full">
+                  <div class="h-3.5 bg-sky-100 rounded-full w-48 mb-2"></div>
+                  <div class="h-2.5 bg-sky-100 rounded-full max-w-[360px]"></div>
+                </div>
+                <div class="h-5 bg-sky-100 rounded-full w-24 mt-4"></div>
+              </figcaption>
+            </div>
+            <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
+              <figure class="w-full h-full">
+                <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
+                  <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                    <path
+                      d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
+                    />
+                  </svg>
+                </div>
+              </figure>
+              <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
+                <div class="w-full">
+                  <div class="h-3.5 bg-sky-100 rounded-full w-48 mb-2"></div>
+                  <div class="h-2.5 bg-sky-100 rounded-full max-w-[360px]"></div>
+                </div>
+                <div class="h-5 bg-sky-100 rounded-full w-24 mt-4"></div>
+              </figcaption>
+            </div>
+            <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
+              <figure class="w-full h-full">
+                <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
+                  <svg class="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                    <path
+                      d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"
+                    />
+                  </svg>
+                </div>
+              </figure>
+              <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
+                <div class="w-full">
+                  <div class="h-3.5 bg-sky-100 rounded-full w-48 mb-2"></div>
+                  <div class="h-2.5 bg-sky-100 rounded-full max-w-[360px]"></div>
+                </div>
+                <div class="h-5 bg-sky-100 rounded-full w-24 mt-4"></div>
+              </figcaption>
+            </div>
             <div class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg h-[300px] w-[300px]">
               <figure class="w-full h-full">
                 <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300 rounded">
