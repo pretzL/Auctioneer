@@ -23,7 +23,7 @@ export async function createListing(evt) {
   const [title, desc, tags, endsAt] = evt.target.elements;
 
   // Grab media gallery
-  const mediaGallery = document.querySelectorAll(`input[data-type="url"]`);
+  const mediaGallery = (document.querySelectorAll(`input[data-type="url"]`).disabled = false);
 
   let media = [];
   mediaGallery.forEach((input) => {

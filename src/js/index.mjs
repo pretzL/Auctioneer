@@ -44,14 +44,15 @@ if (loggedIn) {
 
   // Add event listeners to the create listing form for media gallery
   // Kinda disgusting so maybe try to rewrite this at some point
-  urlInputContainer.addEventListener("change", () => {
-    urlInputContainer.lastElementChild.addEventListener("change", () => {
-      urlInputContainer.innerHTML += `${mediaInput}`;
+  const mediaInput = document.querySelectorAll(`input[data-type="url"]`);
+  const hiddenMediaInput = document.querySelectorAll(`input[data-type="url"].hidden`);
+
+  console.log(mediaInput);
+  mediaInput.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      // Have to grab the next input and enable it somehow.
+      console.log(e.target);
     });
-  });
-  urlInputContainer.lastElementChild.addEventListener("change", () => {
-    console.log(urlInputContainer.lastElementChild.value);
-    urlInputContainer.innerHTML += `${mediaInput}`;
   });
 }
 
