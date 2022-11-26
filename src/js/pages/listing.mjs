@@ -22,9 +22,6 @@ import {
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
-  console.log(data);
-
-  // export const bidTimer = document.querySelector("#bid-timer");
 
   // Title
   listingTitle.innerText = data.title;

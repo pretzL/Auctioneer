@@ -50,8 +50,6 @@ export async function buildProfile(data) {
   // Update saved data in localStorage when viewing own profile
   const savedUser = storage.load("user");
   if (userData.name === savedUser.name) {
-    console.log("It's a match!");
-    console.log(userData);
     storage.save("user", {
       avatar: userData.avatar,
       credits: userData.credits,
