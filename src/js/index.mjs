@@ -3,7 +3,18 @@
 import { login } from "./auth/login.mjs";
 import { register } from "./auth/register.mjs";
 import { buildHeader } from "./components/header.mjs";
-import { cardsContainer, loginForm, registerForm, API_BASE_URL, API_LISTINGS_URL, listingsParams, carouselContainer, createListingForm, searchBar } from "./util/variables.mjs";
+import {
+  cardsContainer,
+  loginForm,
+  registerForm,
+  API_BASE_URL,
+  API_LISTINGS_URL,
+  listingsParams,
+  carouselContainer,
+  createListingForm,
+  searchBar,
+  mediaInput,
+} from "./util/variables.mjs";
 import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
 import { buildProfile } from "./profiles/build.mjs";
 import * as storage from "./storage/index.mjs";
@@ -29,13 +40,21 @@ const loggedIn = isUserLoggedIn();
 if (loggedIn) {
   buildHeader();
   createListingForm.addEventListener("submit", createListing);
+
+  // Add event listeners to the create listing form for media gallery
+
+  mediaInput.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      e.target.nextElementSibling.disabled = false;
+      e.target.nextElementSibling.classList.remove("hidden");
+    });
+  });
 }
 
 // Search
 searchBar.addEventListener("submit", handleQuery);
 
 // Router-ish
-
 if (location.href.includes("index.html")) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
 

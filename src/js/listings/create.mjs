@@ -20,7 +20,19 @@ export async function createListing(evt) {
   const errorContainer = evt.target.querySelector(".error-container");
 
   // Assign the inputs from the form to variables
-  const [title, desc, tags, endsAt, media] = evt.target.elements;
+  const [title, desc, tags, endsAt] = evt.target.elements;
+
+  // Grab media gallery
+  const mediaGallery = document.querySelectorAll(`input[data-type="url"]:enabled`);
+
+  let media = [];
+  mediaGallery.forEach((input) => {
+    if (input.value !== "") {
+      media.push(input.value);
+    }
+  });
+
+  console.log(media);
 
   // Remove whitespace from tags input and split them at commas
   const pushedTags = tags.value.replace(/\s+/g, "").split(",");
@@ -30,13 +42,15 @@ export async function createListing(evt) {
     title: `${title.value}`,
     description: `${desc.value}`,
     tags: pushedTags,
-    media: [`${media.value}`],
+    media: media,
     endsAt: `${endsAt.value}`,
   };
 
-  if (!media.value || media.value === "") {
+  if (!media || media === [] || media === "") {
     delete dataObj.media;
   }
+
+  console.log(dataObj);
 
   // Get the auth token
   const jwt = storage.load("jwt");
@@ -51,9 +65,7 @@ export async function createListing(evt) {
         "Content-Type": "application/json; charset=utf-8",
       },
     });
-
     const json = await response.json();
-
     if (json.errors) {
       errorContainer.innerHTML = errorMessage(json.errors[0].message);
     } else {

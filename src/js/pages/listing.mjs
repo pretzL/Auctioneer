@@ -22,9 +22,6 @@ import {
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
-  console.log(data);
-
-  // export const bidTimer = document.querySelector("#bid-timer");
 
   // Title
   listingTitle.innerText = data.title;
@@ -44,7 +41,7 @@ export async function buildListing(id) {
   }
 
   for (let c = 0; c < imageLength; c++) {
-    carouselCardsContainer.innerHTML += carouselCardsHTML(data.media);
+    carouselCardsContainer.innerHTML += carouselCardsHTML(data.media[c]);
     if (c === 0) {
       carouselCardsContainer.firstElementChild.dataset.carouselItem = "active";
       carouselCardsContainer.firstElementChild.classList.remove("hidden");
