@@ -3,7 +3,18 @@
 import { login } from "./auth/login.mjs";
 import { register } from "./auth/register.mjs";
 import { buildHeader } from "./components/header.mjs";
-import { cardsContainer, loginForm, registerForm, API_BASE_URL, API_LISTINGS_URL, listingsParams, carouselContainer, createListingForm, searchBar } from "./util/variables.mjs";
+import {
+  cardsContainer,
+  loginForm,
+  registerForm,
+  API_BASE_URL,
+  API_LISTINGS_URL,
+  listingsParams,
+  carouselContainer,
+  createListingForm,
+  searchBar,
+  urlInputContainer,
+} from "./util/variables.mjs";
 import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
 import { buildProfile } from "./profiles/build.mjs";
 import * as storage from "./storage/index.mjs";
@@ -16,6 +27,7 @@ import { createListing } from "./listings/create.mjs";
 import { sortTimeAsc } from "./components/filters/timeFilter.mjs";
 import { handleQuery } from "./query/handleQuery.mjs";
 import { buildListings } from "./pages/listings.mjs";
+import { mediaInput } from "./templates/mediaInput.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -29,6 +41,18 @@ const loggedIn = isUserLoggedIn();
 if (loggedIn) {
   buildHeader();
   createListingForm.addEventListener("submit", createListing);
+
+  // Add event listeners to the create listing form for media gallery
+  // Kinda disgusting so maybe try to rewrite this at some point
+  urlInputContainer.addEventListener("change", () => {
+    urlInputContainer.lastElementChild.addEventListener("change", () => {
+      urlInputContainer.innerHTML += `${mediaInput}`;
+    });
+  });
+  urlInputContainer.lastElementChild.addEventListener("change", () => {
+    console.log(urlInputContainer.lastElementChild.value);
+    urlInputContainer.innerHTML += `${mediaInput}`;
+  });
 }
 
 // Search

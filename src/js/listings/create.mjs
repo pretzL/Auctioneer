@@ -20,7 +20,17 @@ export async function createListing(evt) {
   const errorContainer = evt.target.querySelector(".error-container");
 
   // Assign the inputs from the form to variables
-  const [title, desc, tags, endsAt, media] = evt.target.elements;
+  const [title, desc, tags, endsAt] = evt.target.elements;
+
+  // Grab media gallery
+  const mediaGallery = document.querySelectorAll(`input[data-type="url"]`);
+
+  let media = [];
+  mediaGallery.forEach((input) => {
+    media.push(input.value);
+  });
+
+  console.log(media);
 
   // Remove whitespace from tags input and split them at commas
   const pushedTags = tags.value.replace(/\s+/g, "").split(",");
@@ -30,7 +40,7 @@ export async function createListing(evt) {
     title: `${title.value}`,
     description: `${desc.value}`,
     tags: pushedTags,
-    media: [`${media.value}`],
+    media: media,
     endsAt: `${endsAt.value}`,
   };
 
@@ -43,24 +53,22 @@ export async function createListing(evt) {
 
   // Send the data object to the API
   try {
-    const response = await fetch(`${API_BASE_URL}${API_LISTINGS_URL}`, {
-      method: "POST",
-      body: JSON.stringify(dataObj),
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-        "Content-Type": "application/json; charset=utf-8",
-      },
-    });
-
-    const json = await response.json();
-
-    if (json.errors) {
-      errorContainer.innerHTML = errorMessage(json.errors[0].message);
-    } else {
-      errorContainer.innerHTML = successMessage("Post creation");
-      timeout(2000);
-      location.reload();
-    }
+    // const response = await fetch(`${API_BASE_URL}${API_LISTINGS_URL}`, {
+    //   method: "POST",
+    //   body: JSON.stringify(dataObj),
+    //   headers: {
+    //     Authorization: `Bearer ${jwt}`,
+    //     "Content-Type": "application/json; charset=utf-8",
+    //   },
+    // });
+    // const json = await response.json();
+    // if (json.errors) {
+    //   errorContainer.innerHTML = errorMessage(json.errors[0].message);
+    // } else {
+    //   errorContainer.innerHTML = successMessage("Post creation");
+    //   timeout(2000);
+    //   location.reload();
+    // }
   } catch (error) {
     console.log(error);
     errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
