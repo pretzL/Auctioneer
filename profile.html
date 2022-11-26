@@ -327,6 +327,28 @@
           </div>
         </div>
       </div>
+      <!--EDIT PROFILE MEDIA MODAL-->
+      <input type="checkbox" id="edit-media-modal" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
+          <!-- component -->
+          <section class="flex w-[30rem] flex-col space-y-10">
+            <h4 class="text-center text-4xl font-medium">Edit profile avatar</h4>
+            <form class="flex flex-col gap-4" id="edit-media-form">
+              <div class="error error-container"></div>
+
+              <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <input type="text" placeholder="Avatar" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+              </div>
+
+              <button type="submit" class="transform rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">Edit</button>
+            </form>
+          </section>
+          <div class="modal-action absolute top-4 right-4 mt-0">
+            <label for="edit-media-modal" class="btn">X</label>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="p-4 w-full sm:p-6 bg-gray-700">
       <div class="md:flex md:justify-between">

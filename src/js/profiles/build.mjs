@@ -1,9 +1,9 @@
-import { editImage } from "../components/editImage.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { userInfoCard } from "../templates/userInfoCard.mjs";
-import { bidsTitle, cardsContainer, listingsTitle, profileInfo, userBids } from "../util/variables.mjs";
+import { bidsTitle, cardsContainer, editMediaForm, listingsTitle, profileInfo, userBids } from "../util/variables.mjs";
 import { getProfile, getProfileListings } from "./read.mjs";
+import { updateProfile } from "./update.mjs";
 
 export async function buildProfile(data) {
   // Get user profile
@@ -44,6 +44,5 @@ export async function buildProfile(data) {
   }
 
   // Handle edit profile media
-  const editProfileMedia = document.querySelector("#edit-profile-media");
-  editProfileMedia.addEventListener("click", editImage);
+  editMediaForm.addEventListener("submit", updateProfile);
 }
