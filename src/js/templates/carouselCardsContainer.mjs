@@ -1,6 +1,7 @@
 import { validateImage } from "../components/validateImage.mjs";
 
 export const carouselCardsHTML = (data) => {
+  console.log(data);
   const image = validateImage(data);
 
   return `

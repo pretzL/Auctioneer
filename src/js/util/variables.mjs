@@ -29,6 +29,7 @@ export const cardsContainer = document.querySelector("#cards-container");
 export const carouselContainer = document.querySelector("#carousel-container");
 export const searchBar = document.querySelector("#search-bar");
 export const urlInputContainer = document.querySelector("#url-input-container");
+export const mediaInput = document.querySelectorAll(`input[data-type="url"]`);
 
 // Profile page elements
 export const profileInfo = document.querySelector("#user-info");

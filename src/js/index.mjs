@@ -13,7 +13,7 @@ import {
   carouselContainer,
   createListingForm,
   searchBar,
-  urlInputContainer,
+  mediaInput,
 } from "./util/variables.mjs";
 import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
 import { buildProfile } from "./profiles/build.mjs";
@@ -27,7 +27,6 @@ import { createListing } from "./listings/create.mjs";
 import { sortTimeAsc } from "./components/filters/timeFilter.mjs";
 import { handleQuery } from "./query/handleQuery.mjs";
 import { buildListings } from "./pages/listings.mjs";
-import { mediaInput } from "./templates/mediaInput.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -43,15 +42,11 @@ if (loggedIn) {
   createListingForm.addEventListener("submit", createListing);
 
   // Add event listeners to the create listing form for media gallery
-  // Kinda disgusting so maybe try to rewrite this at some point
-  const mediaInput = document.querySelectorAll(`input[data-type="url"]`);
-  const hiddenMediaInput = document.querySelectorAll(`input[data-type="url"].hidden`);
 
-  console.log(mediaInput);
   mediaInput.forEach((input) => {
     input.addEventListener("input", (e) => {
-      // Have to grab the next input and enable it somehow.
-      console.log(e.target);
+      e.target.nextElementSibling.disabled = false;
+      e.target.nextElementSibling.classList.remove("hidden");
     });
   });
 }
@@ -60,7 +55,6 @@ if (loggedIn) {
 searchBar.addEventListener("submit", handleQuery);
 
 // Router-ish
-
 if (location.href.includes("index.html")) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
 

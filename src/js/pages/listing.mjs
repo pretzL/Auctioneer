@@ -41,7 +41,7 @@ export async function buildListing(id) {
   }
 
   for (let c = 0; c < imageLength; c++) {
-    carouselCardsContainer.innerHTML += carouselCardsHTML(data.media);
+    carouselCardsContainer.innerHTML += carouselCardsHTML(data.media[c]);
     if (c === 0) {
       carouselCardsContainer.firstElementChild.dataset.carouselItem = "active";
       carouselCardsContainer.firstElementChild.classList.remove("hidden");

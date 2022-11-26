@@ -23,11 +23,13 @@ export async function createListing(evt) {
   const [title, desc, tags, endsAt] = evt.target.elements;
 
   // Grab media gallery
-  const mediaGallery = (document.querySelectorAll(`input[data-type="url"]`).disabled = false);
+  const mediaGallery = document.querySelectorAll(`input[data-type="url"]:enabled`);
 
   let media = [];
   mediaGallery.forEach((input) => {
-    media.push(input.value);
+    if (input.value !== "") {
+      media.push(input.value);
+    }
   });
 
   console.log(media);
@@ -44,31 +46,33 @@ export async function createListing(evt) {
     endsAt: `${endsAt.value}`,
   };
 
-  if (!media.value || media.value === "") {
+  if (!media || media === [] || media === "") {
     delete dataObj.media;
   }
+
+  console.log(dataObj);
 
   // Get the auth token
   const jwt = storage.load("jwt");
 
   // Send the data object to the API
   try {
-    // const response = await fetch(`${API_BASE_URL}${API_LISTINGS_URL}`, {
-    //   method: "POST",
-    //   body: JSON.stringify(dataObj),
-    //   headers: {
-    //     Authorization: `Bearer ${jwt}`,
-    //     "Content-Type": "application/json; charset=utf-8",
-    //   },
-    // });
-    // const json = await response.json();
-    // if (json.errors) {
-    //   errorContainer.innerHTML = errorMessage(json.errors[0].message);
-    // } else {
-    //   errorContainer.innerHTML = successMessage("Post creation");
-    //   timeout(2000);
-    //   location.reload();
-    // }
+    const response = await fetch(`${API_BASE_URL}${API_LISTINGS_URL}`, {
+      method: "POST",
+      body: JSON.stringify(dataObj),
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    });
+    const json = await response.json();
+    if (json.errors) {
+      errorContainer.innerHTML = errorMessage(json.errors[0].message);
+    } else {
+      errorContainer.innerHTML = successMessage("Post creation");
+      timeout(2000);
+      location.reload();
+    }
   } catch (error) {
     console.log(error);
     errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
