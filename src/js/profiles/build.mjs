@@ -7,6 +7,7 @@ import { getProfile } from "./read.mjs";
 export async function buildProfile(data) {
   // Get user profile
   const userData = await getProfile(data);
+  console.log(userData);
 
   // Clear containers
   userBids.innerHTML = "";
@@ -33,11 +34,12 @@ export async function buildProfile(data) {
 
   // Handle user listing cards
   const listings = userData.listings;
+
   if (listings.length === 0) {
     cardsContainer.innerHTML = errorMessage("User has no listings");
   } else {
-    listings.forEach((listing) => {
-      cardsContainer.innerHTML += cardHTML(listing);
-    });
+    for (let c = 0; c < listings.length; c++) {
+      cardsContainer.innerHTML += cardHTML(listings[c]);
+    }
   }
 }
