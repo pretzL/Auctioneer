@@ -3,7 +3,7 @@
 import { login } from "./auth/login.mjs";
 import { register } from "./auth/register.mjs";
 import { buildHeader } from "./components/header.mjs";
-import { cardsContainer, loginForm, registerForm, API_BASE_URL, API_LISTINGS_URL, listingsParams, carouselContainer, createListingForm } from "./util/variables.mjs";
+import { cardsContainer, loginForm, registerForm, API_BASE_URL, API_LISTINGS_URL, listingsParams, carouselContainer, createListingForm, searchBar } from "./util/variables.mjs";
 import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
 import { buildProfile } from "./profiles/build.mjs";
 import * as storage from "./storage/index.mjs";
@@ -14,6 +14,9 @@ import { carouselHTML } from "./templates/carouselCard.mjs";
 import { buildListing } from "./pages/listing.mjs";
 import { createListing } from "./listings/create.mjs";
 import { sortTimeAsc } from "./components/filters/timeFilter.mjs";
+import { handleQuery } from "./query/handleQuery.mjs";
+import { search } from "./query/search.mjs";
+import { buildListings } from "./pages/listings.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -29,12 +32,13 @@ if (loggedIn) {
   createListingForm.addEventListener("submit", createListing);
 }
 
+// Search
+searchBar.addEventListener("submit", handleQuery);
+
 // Router-ish
-console.log(location.href);
 
 if (location.href.includes("index.html")) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
-  console.log(data);
 
   const sorted = sortTimeAsc(data);
 
@@ -86,5 +90,20 @@ if (location.href.includes("listing.html")) {
     location.href = `./index.html`;
   } else {
     buildListing(id);
+  }
+}
+
+if (location.href.includes("listings.html")) {
+  // Get the query value
+  const queryString = document.location.search;
+
+  const params = new URLSearchParams(queryString);
+
+  const query = params.get("query");
+
+  if (!query) {
+    location.href = `./index.html`;
+  } else {
+    buildListings(query);
   }
 }
