@@ -8,6 +8,10 @@ export const userInfoCard = (data) => {
       <p>Listings: ${data._count.listings}</p>
     </div>
   </div>
-  <img src="${data.avatar}" class="rounded-full w-24 h-24" alt="${data.name}'s profile image"/>
+  <div>
+    <div class="tooltip flex flex-col w-32 h-32" data-tip="Click to edit">
+      <img id="edit-profile-media" src="${data.avatar}" class="rounded-full w-32 h-32 self-end" alt="${data.name}'s profile image"/>
+    </div>
+  </div>
   `;
 };

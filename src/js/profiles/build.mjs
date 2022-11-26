@@ -1,3 +1,4 @@
+import { editImage } from "../components/editImage.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { userInfoCard } from "../templates/userInfoCard.mjs";
@@ -41,4 +42,8 @@ export async function buildProfile(data) {
       cardsContainer.innerHTML += cardHTML(listings[c]);
     }
   }
+
+  // Handle edit profile media
+  const editProfileMedia = document.querySelector("#edit-profile-media");
+  editProfileMedia.addEventListener("click", editImage);
 }
