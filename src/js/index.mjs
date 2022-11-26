@@ -15,7 +15,6 @@ import { buildListing } from "./pages/listing.mjs";
 import { createListing } from "./listings/create.mjs";
 import { sortTimeAsc } from "./components/filters/timeFilter.mjs";
 import { handleQuery } from "./query/handleQuery.mjs";
-import { search } from "./query/search.mjs";
 import { buildListings } from "./pages/listings.mjs";
 
 // Register form

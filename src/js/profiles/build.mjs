@@ -1,8 +1,10 @@
 import { errorMessage } from "../components/error.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { userInfoCard } from "../templates/userInfoCard.mjs";
-import { bidsTitle, cardsContainer, listingsTitle, profileInfo, userBids } from "../util/variables.mjs";
-import { getProfile } from "./read.mjs";
+import { bidsTitle, cardsContainer, editMediaForm, listingsTitle, profileInfo, userBids } from "../util/variables.mjs";
+import { getProfile, getProfileListings } from "./read.mjs";
+import { updateProfile } from "./update.mjs";
+import * as storage from "../storage/index.mjs";
 
 export async function buildProfile(data) {
   // Get user profile
@@ -32,12 +34,29 @@ export async function buildProfile(data) {
   }
 
   // Handle user listing cards
-  const listings = userData.listings;
+  const listings = await getProfileListings(data);
+
   if (listings.length === 0) {
     cardsContainer.innerHTML = errorMessage("User has no listings");
   } else {
-    listings.forEach((listing) => {
-      cardsContainer.innerHTML += cardHTML(listing);
+    for (let c = 0; c < listings.length; c++) {
+      cardsContainer.innerHTML += cardHTML(listings[c]);
+    }
+  }
+
+  // Handle edit profile media
+  editMediaForm.addEventListener("submit", updateProfile);
+
+  // Update saved data in localStorage when viewing own profile
+  const savedUser = storage.load("user");
+  if (userData.name === savedUser.name) {
+    console.log("It's a match!");
+    console.log(userData);
+    storage.save("user", {
+      avatar: userData.avatar,
+      credits: userData.credits,
+      email: userData.email,
+      name: userData.name,
     });
   }
 }
