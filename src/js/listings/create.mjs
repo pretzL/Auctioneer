@@ -32,8 +32,6 @@ export async function createListing(evt) {
     }
   });
 
-  console.log(media);
-
   // Remove whitespace from tags input and split them at commas
   const pushedTags = tags.value.replace(/\s+/g, "").split(",");
 
@@ -49,8 +47,6 @@ export async function createListing(evt) {
   if (!media || media === [] || media === "") {
     delete dataObj.media;
   }
-
-  console.log(dataObj);
 
   // Get the auth token
   const jwt = storage.load("jwt");
@@ -69,7 +65,7 @@ export async function createListing(evt) {
     if (json.errors) {
       errorContainer.innerHTML = errorMessage(json.errors[0].message);
     } else {
-      errorContainer.innerHTML = successMessage("Post creation");
+      errorContainer.innerHTML = successMessage("Creation");
       timeout(2000);
       location.reload();
     }

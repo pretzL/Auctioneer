@@ -217,10 +217,10 @@
             </div>
           </div>
         </div>
-        <div class="box flex gap-4">
-          <button id="favorites-button" class="btn bg-dark-green shadow-lg text-white">Add to favorites</button>
-          <button id="edit-button" class="btn bg-dark-green shadow-lg text-white hidden">Edit Listing</button>
-          <button id="delete-button" class="btn bg-dark-green shadow-lg text-white hidden">Delete Listing</button>
+        <div class="box modal-action flex gap-4">
+          <label id="favorites-button" class="btn bg-dark-green shadow-lg text-white">Add to favorites</label>
+          <label id="edit-button" for="edit-listing-modal" class="btn bg-dark-green shadow-lg text-white hidden">Edit Listing</label>
+          <label id="delete-button" for="delete-listing-modal" class="btn bg-dark-green shadow-lg text-white hidden">Delete Listing</label>
         </div>
         <div id="bid-timer" class="box flex items-center justify-center text-black">
           <span class="countdown font-mono text-2xl"> <span style="--value: 10"></span>h <span style="--value: 24"></span>m <span style="--value: 50"></span>s </span>
@@ -391,6 +391,99 @@
           </section>
           <div class="modal-action absolute top-4 right-4 mt-0">
             <label for="create-listing-modal" class="btn">X</label>
+          </div>
+        </div>
+      </div>
+      <!--EDIT LISTING MODAL-->
+      <input type="checkbox" id="edit-listing-modal" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
+          <!-- component -->
+          <section class="flex w-[30rem] flex-col space-y-10">
+            <h4 class="text-center text-4xl font-medium">Edit a listing!</h4>
+            <form class="flex flex-col gap-4" id="edit-listing-form">
+              <div class="error error-container"></div>
+              <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <input type="text" placeholder="Title" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required minlength="3" />
+              </div>
+
+              <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <textarea
+                  type="text"
+                  placeholder="Description"
+                  rows="4"
+                  class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  style="resize: none"
+                ></textarea>
+              </div>
+
+              <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <input type="text" placeholder="Tags, separate by comma" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+              </div>
+
+              <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label for="date-picker" class="w-full border-none bg-transparent outline-none italic">End auction by</label>
+                <input type="datetime-local" id="edit-date-picker" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+              </div>
+
+              <div id="url-input-container" class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <input type="text" data-type="url" placeholder="Image URL" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+              </div>
+
+              <button type="submit" class="transform rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">Edit</button>
+            </form>
+          </section>
+          <div class="modal-action absolute top-4 right-4 mt-0">
+            <label for="edit-listing-modal" class="btn">X</label>
           </div>
         </div>
       </div>

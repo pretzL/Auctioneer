@@ -14,6 +14,7 @@ export const createListingForm = document.querySelector("#create-listing-form");
 export const registerForm = document.querySelector("#register-form");
 export const loginForm = document.querySelector("#login-form");
 export const editMediaForm = document.querySelector("#edit-media-form");
+export const editListingForm = document.querySelector("#edit-listing-form");
 
 // Checkboxes
 export const createListingCheck = document.querySelector("#create-listing-modal");

@@ -14,6 +14,7 @@ import {
   createListingForm,
   searchBar,
   mediaInput,
+  editListingForm,
 } from "./util/variables.mjs";
 import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
 import { buildProfile } from "./profiles/build.mjs";
@@ -27,6 +28,7 @@ import { createListing } from "./listings/create.mjs";
 import { sortTimeAsc } from "./components/filters/timeFilter.mjs";
 import { handleQuery } from "./query/handleQuery.mjs";
 import { buildListings } from "./pages/listings.mjs";
+import { editListing } from "./listings/update.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -109,6 +111,9 @@ if (location.href.includes("listing.html")) {
   } else {
     buildListing(id);
   }
+
+  // Edit listing
+  editListingForm.addEventListener("submit", editListing);
 }
 
 if (location.href.includes("listings.html")) {

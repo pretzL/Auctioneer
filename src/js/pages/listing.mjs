@@ -23,10 +23,10 @@ import {
   sellerInfo,
 } from "../util/variables.mjs";
 import * as storage from "../storage/index.mjs";
+import { getListingToEdit } from "../listings/update.mjs";
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
-  console.log(data);
 
   // Grab user info
   const userInfo = storage.load("user");
@@ -89,4 +89,7 @@ export async function buildListing(id) {
 
   // Suggested listings
   // Add fetch on tags later?
+
+  // Edit listing
+  editButton.addEventListener("click", getListingToEdit(data));
 }
