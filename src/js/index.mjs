@@ -15,6 +15,7 @@ import {
   searchBar,
   mediaInput,
   editListingForm,
+  deleteListingButton,
 } from "./util/variables.mjs";
 import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
 import { buildProfile } from "./profiles/build.mjs";
@@ -29,6 +30,7 @@ import { sortTimeAsc } from "./components/filters/timeFilter.mjs";
 import { handleQuery } from "./query/handleQuery.mjs";
 import { buildListings } from "./pages/listings.mjs";
 import { editListing } from "./listings/update.mjs";
+import { deleteListing } from "./listings/delete.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -114,6 +116,9 @@ if (location.href.includes("listing.html")) {
 
   // Edit listing
   editListingForm.addEventListener("submit", editListing);
+
+  // Delete listing
+  deleteListingButton.addEventListener("click", deleteListing);
 }
 
 if (location.href.includes("listings.html")) {
