@@ -88,7 +88,7 @@ export async function editListing(evt) {
     } else {
       errorContainer.innerHTML = successMessage("Edit");
       timeout(3000);
-      //   location.reload();
+      location.reload();
     }
   } catch (error) {
     console.log(error);
