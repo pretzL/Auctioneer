@@ -217,19 +217,27 @@
             </div>
           </div>
         </div>
-        <div id="favorites-button" class="box">
-          <button class="btn bg-dark-green shadow-lg text-white">Add to favorites</button>
+        <div class="box">
+          <button id="favorites-button" class="btn bg-dark-green shadow-lg text-white">Add to favorites</button>
         </div>
         <div id="bid-timer" class="box flex items-center justify-center text-black">
           <span class="countdown font-mono text-2xl"> <span style="--value: 10"></span>h <span style="--value: 24"></span>m <span style="--value: 50"></span>s </span>
         </div>
         <div id="listing-description" class="box md:row-span-2 md:col-span-2">
-          <h1 id="listing-h1" class="mb-4 text-xl font-semibold text-black">Listing</h1>
+          <h1 id="listing-h1" class="mb-4 text-xl font-semibold text-black">
+            <div role="status" class="max-w-sm animate-pulse">
+              <div class="h-6 bg-sky-100 rounded-full w-48 mb-4"></div>
+              <span class="sr-only">Loading...</span>
+            </div>
+          </h1>
           <div id="listing-desc" class="text-black">
-            This is a cool listing made out of 100% organically farmed memes. Get your fresh memes at a discounted price. They're juicy, tasty and spicy. Pulled right out of the
-            earth freshly for you.
+            <div role="status" class="max-w-sm animate-pulse">
+              <div class="h-4.5 bg-sky-100 rounded-full w-48 mb-4"></div>
+              <div class="h-3 bg-sky-100 rounded-full max-w-[360px] mb-2.5"></div>
+              <div class="h-3 bg-sky-100 rounded-full mb-2.5"></div>
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
-          <!-- MAKE SURE TO CHANGE THE ABOVE INTO A SKELETON LOADER -->
         </div>
       </div>
       <section class="my-16">
@@ -325,6 +333,55 @@
 
               <div id="url-input-container" class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
                 <input type="text" data-type="url" placeholder="Image URL" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
+                <input
+                  type="text"
+                  data-type="url"
+                  placeholder="Image URL"
+                  class="hidden w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  disabled
+                />
               </div>
 
               <button type="submit" class="transform rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">Create</button>
