@@ -14,14 +14,29 @@ import {
   bidTimer,
   carouselCardsContainer,
   currentBid,
+  deleteButton,
+  editButton,
+  favoritesButton,
   listingDesc,
   listingsParams,
   listingTitle,
   sellerInfo,
 } from "../util/variables.mjs";
+import * as storage from "../storage/index.mjs";
+import { getListingToEdit } from "../listings/update.mjs";
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
+
+  // Grab user info
+  const userInfo = storage.load("user");
+
+  // Hide unnecessary buttons
+  if (userInfo.name === data.seller.name) {
+    favoritesButton.classList.add("hidden");
+    editButton.classList.remove("hidden");
+    deleteButton.classList.remove("hidden");
+  }
 
   // Title
   listingTitle.innerText = data.title;
@@ -74,4 +89,7 @@ export async function buildListing(id) {
 
   // Suggested listings
   // Add fetch on tags later?
+
+  // Edit listing
+  editButton.addEventListener("click", getListingToEdit(data));
 }

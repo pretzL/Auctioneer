@@ -45,7 +45,7 @@ export async function createBid(evt) {
     if (json.errors) {
       errorContainer.innerHTML = errorMessage(json.errors[0].message);
     } else {
-      errorContainer.innerHTML = successMessage("Bid ");
+      errorContainer.innerHTML = successMessage("Bid");
       location.reload();
     }
   } catch (error) {
