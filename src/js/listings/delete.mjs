@@ -4,7 +4,7 @@ import { successMessage } from "../components/success.mjs";
 import { timeout } from "../util/timeout.mjs";
 import { API_BASE_URL, API_LISTINGS_URL, deleteListingModalContent } from "../util/variables.mjs";
 
-export async function deleteListing(evt) {
+export async function deleteListing() {
   // Grab error container
   const errorContainer = deleteListingModalContent.querySelector(".error-container");
 
