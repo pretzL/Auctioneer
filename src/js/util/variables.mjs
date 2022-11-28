@@ -30,6 +30,9 @@ export const carouselContainer = document.querySelector("#carousel-container");
 export const searchBar = document.querySelector("#search-bar");
 export const urlInputContainer = document.querySelector("#url-input-container");
 export const mediaInput = document.querySelectorAll(`input[data-type="url"]`);
+export const favoritesButton = document.querySelector("#favorites-button");
+export const editButton = document.querySelector("#edit-button");
+export const deleteButton = document.querySelector("#delete-button");
 
 // Profile page elements
 export const profileInfo = document.querySelector("#user-info");
