@@ -217,13 +217,38 @@
             </div>
           </div>
         </div>
-        <div class="box modal-action flex gap-4 justify-start">
+        <div class="modal-action flex gap-4 justify-start items-center mt-0">
           <label id="favorites-button" class="btn bg-dark-green shadow-lg text-white">Add to favorites</label>
           <label id="edit-button" for="edit-listing-modal" class="btn bg-dark-green shadow-lg text-white hidden">Edit Listing</label>
           <label id="delete-button" for="delete-listing-modal" class="btn bg-dark-green shadow-lg text-white hidden">Delete Listing</label>
         </div>
-        <div id="bid-timer" class="box flex items-center justify-center text-black">
-          <span class="countdown font-mono text-2xl"> <span style="--value: 10"></span>h <span style="--value: 24"></span>m <span style="--value: 50"></span>s </span>
+        <div id="bid-timer" class="box flex items-center justify-center text-white">
+          <div class="grid grid-flow-col gap-5 text-center auto-cols-max">
+            <div class="flex flex-col p-2 bg-dark-green text-inherit justify-center items-center rounded-box text-neutral-content">
+              <span class="countdown font-mono text-3xl">
+                <span id="days-value" style="--value: 0"></span>
+              </span>
+              days
+            </div>
+            <div class="flex flex-col p-2 bg-dark-green text-inherit justify-center items-center rounded-box text-neutral-content">
+              <span class="countdown font-mono text-3xl">
+                <span id="hours-value" style="--value: 0"></span>
+              </span>
+              hours
+            </div>
+            <div class="flex flex-col p-2 bg-dark-green text-inherit justify-center items-center rounded-box text-neutral-content">
+              <span class="countdown font-mono text-3xl">
+                <span id="mins-value" style="--value: 0"></span>
+              </span>
+              min
+            </div>
+            <div class="flex flex-col p-2 bg-dark-green text-inherit justify-center items-center rounded-box text-neutral-content">
+              <span class="countdown font-mono text-3xl">
+                <span id="sec-value" style="--value: 0"></span>
+              </span>
+              sec
+            </div>
+          </div>
         </div>
         <div id="listing-description" class="box md:row-span-2 md:col-span-2">
           <h1 id="listing-h1" class="mb-4 text-xl font-semibold text-black">

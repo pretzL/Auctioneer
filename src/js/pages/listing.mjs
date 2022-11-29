@@ -26,6 +26,7 @@ import {
 import * as storage from "../storage/index.mjs";
 import { getListingToEdit } from "../listings/update.mjs";
 import { cardHTML } from "../templates/card.mjs";
+import { countdownTimer } from "../components/countdown.mjs";
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
@@ -86,8 +87,7 @@ export async function buildListing(id) {
   }
 
   // Bid Timer
-  const timer = timeUntil(data.endsAt);
-  bidTimer.innerHTML = `Ends ${timer}`;
+  countdownTimer(data.endsAt);
 
   // Suggested listings
   cardsContainer.innerHTML = "";
