@@ -41,6 +41,8 @@ export const deleteListingModalContent = document.querySelector("#delete-listing
 export const profileInfo = document.querySelector("#user-info");
 export const userBids = document.querySelector("#user-bids-content");
 export const bidsTitle = document.querySelector("#bids-title");
+export const userWins = document.querySelector("#user-wins-content");
+export const winsTitle = document.querySelector("#wins-title");
 export const listingsTitle = document.querySelector("#user-listings");
 
 // Listing page elements
