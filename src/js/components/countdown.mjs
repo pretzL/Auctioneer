@@ -1,5 +1,7 @@
 import { bidTimer, daysContainer, hoursContainer, minsContainer, secContainer } from "../util/variables.mjs";
 
+// Inspired by https://www.w3schools.com/howto/howto_js_countdown.asp
+
 export function countdownTimer(date) {
   const dateFix = new Date(date).getTime();
 
