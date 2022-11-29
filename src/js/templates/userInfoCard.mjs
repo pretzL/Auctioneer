@@ -10,7 +10,7 @@ export const userInfoCard = (data) => {
   </div>
   <div>
     <label for="edit-media-modal" class="tooltip flex flex-col w-32 h-32 btn btn-ghost btn-circle" data-tip="Click to edit">
-      <img id="edit-profile-media" src="${data.avatar}" class="rounded-full w-32 h-32 self-end" alt="${data.name}'s profile image"/>
+      <img id="edit-profile-media" src="${data.avatar}" class="rounded-full w-32 h-32 self-end object-cover object-center" alt="${data.name}'s profile image"/>
     </label>
   </div>
   `;

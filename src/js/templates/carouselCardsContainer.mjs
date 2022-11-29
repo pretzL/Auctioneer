@@ -5,7 +5,7 @@ export const carouselCardsHTML = (data) => {
 
   return `
     <div class="hidden duration-700 ease-in-out w-full h-full" data-carousel-item>
-      <img class="rounded-box h-full w-full" src="${image}"/>
+      <img class="rounded-box h-full w-full object-cover object-center" src="${image}"/>
     </div>
   `;
 };
