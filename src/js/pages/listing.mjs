@@ -1,7 +1,7 @@
 import { createBid } from "../bid/create.mjs";
 import { sortAmountAsc } from "../components/filters/amountFilter.mjs";
 import { timeUntil } from "../components/timeUntil.mjs";
-import { getListings } from "../listings/read.mjs";
+import { getListings, getSuggested } from "../listings/read.mjs";
 import { bidListHTML } from "../templates/bidList.mjs";
 import { carouselCardsHTML } from "../templates/carouselCardsContainer.mjs";
 import { buildBidInfo } from "../templates/currentBid.mjs";
@@ -12,6 +12,7 @@ import {
   API_LISTINGS_URL,
   bidHistory,
   bidTimer,
+  cardsContainer,
   carouselCardsContainer,
   currentBid,
   deleteButton,
@@ -24,6 +25,7 @@ import {
 } from "../util/variables.mjs";
 import * as storage from "../storage/index.mjs";
 import { getListingToEdit } from "../listings/update.mjs";
+import { cardHTML } from "../templates/card.mjs";
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
@@ -88,7 +90,19 @@ export async function buildListing(id) {
   bidTimer.innerHTML = `Ends ${timer}`;
 
   // Suggested listings
-  // Add fetch on tags later?
+  cardsContainer.innerHTML = "";
+
+  const suggested = await getSuggested(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options, data.tags[0]);
+
+  for (let f = 0; f < suggested.length; f++) {
+    if (suggested[f].title === data.title) {
+      continue;
+    }
+    if (f === 6) {
+      break;
+    }
+    cardsContainer.innerHTML += cardHTML(suggested[f]);
+  }
 
   // Edit listing
   editButton.addEventListener("click", getListingToEdit(data));

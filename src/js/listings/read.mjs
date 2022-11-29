@@ -20,3 +20,16 @@ export async function getListings(url, opt) {
   const data = await response.json();
   return data;
 }
+
+export async function getSuggested(url, opt, value) {
+  const data = await getListings(url, opt);
+
+  const filtered = data.filter((listing) => {
+    let desc;
+    if (listing.description) {
+      desc = listing.description.toLowerCase().includes(value.toLowerCase());
+    }
+    return listing.seller.name.toLowerCase().includes(value.toLowerCase()) || listing.title.toLowerCase().includes(value.toLowerCase()) || desc;
+  });
+  return filtered;
+}

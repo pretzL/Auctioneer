@@ -2,6 +2,7 @@ import { sortAmountAsc } from "../components/filters/amountFilter.mjs";
 import { validateImage } from "../components/validateImage.mjs";
 
 export const cardHTML = (data) => {
+  console.log(data);
   let price = 0;
   if (data.bids[0]) {
     const sorted = sortAmountAsc(data.bids);
