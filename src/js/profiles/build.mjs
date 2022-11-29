@@ -1,11 +1,12 @@
 import { errorMessage } from "../components/error.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { userInfoCard } from "../templates/userInfoCard.mjs";
-import { bidsTitle, cardsContainer, editMediaForm, listingsTitle, profileInfo, userBids, userWins, winsTitle } from "../util/variables.mjs";
+import { bidsTitle, cardsContainer, editMediaForm, listingsTitle, profileInfo, profileSearchBar, userBids, userWins, winsTitle } from "../util/variables.mjs";
 import { getBids, getProfile, getProfileListings } from "./read.mjs";
 import { updateProfile } from "./update.mjs";
 import * as storage from "../storage/index.mjs";
 import { bidListHTML } from "../templates/bidList.mjs";
+import { search } from "../query/search.mjs";
 
 export async function buildProfile(data) {
   // Get user profile
@@ -77,4 +78,17 @@ export async function buildProfile(data) {
       name: userData.name,
     });
   }
+
+  // Handle profile search bar
+  profileSearchBar.addEventListener("input", async (e) => {
+    const value = e.target.value;
+
+    const result = await search(listings, value);
+
+    cardsContainer.innerHTML = "";
+
+    for (let f = 0; f < result.length; f++) {
+      cardsContainer.innerHTML += cardHTML(result[f]);
+    }
+  });
 }
