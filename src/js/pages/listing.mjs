@@ -27,6 +27,7 @@ import * as storage from "../storage/index.mjs";
 import { getListingToEdit } from "../listings/update.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { countdownTimer } from "../components/countdown.mjs";
+import { errorMessage } from "../components/error.mjs";
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
@@ -92,16 +93,20 @@ export async function buildListing(id) {
   // Suggested listings
   cardsContainer.innerHTML = "";
 
-  const suggested = await getSuggested(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options, data.tags[0]);
+  if (data.tags[0]) {
+    const suggested = await getSuggested(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options, data.tags[0]);
 
-  for (let f = 0; f < suggested.length; f++) {
-    if (suggested[f].title === data.title) {
-      continue;
+    for (let f = 0; f < suggested.length; f++) {
+      if (suggested[f].title === data.title) {
+        continue;
+      }
+      if (f === 6) {
+        break;
+      }
+      cardsContainer.innerHTML += cardHTML(suggested[f]);
     }
-    if (f === 6) {
-      break;
-    }
-    cardsContainer.innerHTML += cardHTML(suggested[f]);
+  } else {
+    cardsContainer.innerHTML = errorMessage("No listings match...");
   }
 
   // Edit listing
