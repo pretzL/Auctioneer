@@ -1,6 +1,7 @@
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import * as storage from "../storage/index.mjs";
+import { timeout } from "../util/timeout.mjs";
 import { API_BASE_URL, API_LISTINGS_URL } from "../util/variables.mjs";
 
 /**
@@ -46,6 +47,7 @@ export async function createBid(evt) {
       errorContainer.innerHTML = errorMessage(json.errors[0].message);
     } else {
       errorContainer.innerHTML = successMessage("Bid");
+      timeout(3000);
       location.reload();
     }
   } catch (error) {
