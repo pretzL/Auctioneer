@@ -1,3 +1,5 @@
+import { isUserLoggedIn } from "../auth/isUserLoggedIn.mjs";
+
 // API URLs
 export const API_BASE_URL = "https://nf-api.onrender.com";
 export const API_LISTINGS_URL = "/api/v1/auction/listings";
@@ -20,6 +22,7 @@ export const editListingForm = document.querySelector("#edit-listing-form");
 export const createListingCheck = document.querySelector("#create-listing-modal");
 export const registerCheck = document.querySelector("#register-modal");
 export const loginCheck = document.querySelector("#login-modal");
+export const pleaseLoginCheck = document.querySelector("#please-login-modal");
 
 // Header elements
 export const userDropdown = document.querySelector("#user-dropdown");
@@ -60,3 +63,6 @@ export const daysContainer = document.querySelector("#days-value");
 export const hoursContainer = document.querySelector("#hours-value");
 export const minsContainer = document.querySelector("#mins-value");
 export const secContainer = document.querySelector("#sec-value");
+
+// isUserLoggedIn
+export const loggedIn = isUserLoggedIn();

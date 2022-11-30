@@ -3,11 +3,11 @@
 import { login } from "./auth/login.mjs";
 import { register } from "./auth/register.mjs";
 import { buildHeader } from "./components/header.mjs";
-import { loginForm, registerForm, createListingForm, searchBar, mediaInput } from "./util/variables.mjs";
-import { isUserLoggedIn } from "./auth/isUserLoggedIn.mjs";
+import { loginForm, registerForm, createListingForm, searchBar, mediaInput, createListingCheck, loggedIn } from "./util/variables.mjs";
 import { createListing } from "./listings/create.mjs";
 import { handleQuery } from "./query/handleQuery.mjs";
 import { router } from "./router/router.mjs";
+import { checkIfChecked } from "./components/checkIfChecked.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
@@ -16,7 +16,6 @@ registerForm.addEventListener("submit", register);
 loginForm.addEventListener("submit", login);
 
 // Header
-const loggedIn = isUserLoggedIn();
 
 if (loggedIn) {
   buildHeader();
@@ -31,6 +30,16 @@ if (loggedIn) {
     });
   });
 }
+
+// Create Listing Form
+createListingCheck.addEventListener("change", () => {
+  const isChecked = checkIfChecked(createListingCheck);
+  if (isChecked) {
+    if (!loggedIn) {
+      location.href = "./index.html?error=true";
+    }
+  }
+});
 
 // Search
 searchBar.addEventListener("submit", handleQuery);

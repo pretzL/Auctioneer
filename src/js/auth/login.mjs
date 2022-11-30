@@ -41,7 +41,7 @@ export async function login(evt) {
     const json = await response.json();
 
     if (json.errors) {
-      errorContainer.innerHTML = errorMessage(json.errors[0].message);
+      errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${json.errors[0].message}`);
     } else {
       errorContainer.style.display = "none";
       errorContainer.innerHTML = successMessage("Login");
@@ -59,7 +59,7 @@ export async function login(evt) {
 
       // Redirect
       timeout(3000);
-      location.reload();
+      location.href = "./index.html";
     }
   } catch (error) {
     console.log(error);

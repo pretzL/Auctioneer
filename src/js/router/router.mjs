@@ -2,7 +2,17 @@ import { sortTimeAsc } from "../components/filters/timeFilter.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { carouselHTML } from "../templates/carouselCard.mjs";
 import { options } from "../util/options.mjs";
-import { API_BASE_URL, API_LISTINGS_URL, cardsContainer, carouselContainer, deleteListingButton, editListingForm, listingsParams } from "../util/variables.mjs";
+import {
+  API_BASE_URL,
+  API_LISTINGS_URL,
+  cardsContainer,
+  carouselContainer,
+  deleteListingButton,
+  editListingForm,
+  listingsParams,
+  loggedIn,
+  pleaseLoginCheck,
+} from "../util/variables.mjs";
 import * as storage from "../storage/index.mjs";
 import { buildProfile } from "../profiles/build.mjs";
 import { buildListing } from "../pages/listing.mjs";
@@ -13,7 +23,7 @@ import { getListings } from "../listings/read.mjs";
 
 export async function router() {
   // Router-ish
-  if (location.href.includes("index.html")) {
+  if (location.href.includes("index.html" || "")) {
     const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
 
     const sorted = sortTimeAsc(data);
@@ -34,23 +44,38 @@ export async function router() {
       }
       carouselContainer.innerHTML += carouselHTML(data[c], c);
     }
-  }
 
-  if (location.href.includes("profile.html")) {
-    // Get user info
-    const userInfo = storage.load("user");
-
-    // QUERY STRINGS
+    // Error handling
     const queryString = document.location.search;
 
     const params = new URLSearchParams(queryString);
 
-    const name = params.get("name");
+    const error = params.get("error");
 
-    if (!name) {
-      location.href = `./profile.html?name=${userInfo.name}`;
+    if (error) {
+      pleaseLoginCheck.checked = true;
+    }
+  }
+
+  if (location.href.includes("profile.html")) {
+    if (!loggedIn) {
+      location.href = "./index.html?error=true";
     } else {
-      buildProfile(name);
+      // Get user info
+      const userInfo = storage.load("user");
+
+      // QUERY STRINGS
+      const queryString = document.location.search;
+
+      const params = new URLSearchParams(queryString);
+
+      const name = params.get("name");
+
+      if (!name) {
+        location.href = `./profile.html?name=${userInfo.name}`;
+      } else {
+        buildProfile(name);
+      }
     }
   }
 

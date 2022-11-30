@@ -84,7 +84,7 @@ export async function editListing(evt) {
     const json = await response.json();
 
     if (json.errors) {
-      errorContainer.innerHTML = errorMessage(json.errors[0].message);
+      errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${json.errors[0].message}`);
     } else {
       errorContainer.innerHTML = successMessage("Edit");
       timeout(3000);
