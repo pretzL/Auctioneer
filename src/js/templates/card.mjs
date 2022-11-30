@@ -3,9 +3,11 @@ import { validateImage } from "../components/validateImage.mjs";
 
 export const cardHTML = (data) => {
   let price = 0;
-  if (data.bids[0]) {
-    const sorted = sortAmountAsc(data.bids);
-    price = sorted[0].amount;
+  if (data.bids) {
+    if (data.bids.length > 0) {
+      const sorted = sortAmountAsc(data.bids);
+      price = sorted[0].amount;
+    }
   }
 
   const image = validateImage(data.media[0]);

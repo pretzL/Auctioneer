@@ -93,14 +93,18 @@ export async function buildListing(id) {
   if (data.tags[0]) {
     const suggested = await getSuggested(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options, data.tags[0]);
 
-    for (let f = 0; f < suggested.length; f++) {
-      if (suggested[f].title === data.title) {
-        continue;
+    if (suggested.length > 0) {
+      for (let f = 0; f < suggested.length; f++) {
+        if (suggested[f].title === data.title) {
+          continue;
+        }
+        if (f === 6) {
+          break;
+        }
+        cardsContainer.innerHTML += cardHTML(suggested[f]);
       }
-      if (f === 6) {
-        break;
-      }
-      cardsContainer.innerHTML += cardHTML(suggested[f]);
+    } else {
+      cardsContainer.innerHTML = errorMessage("No listings match...");
     }
   } else {
     cardsContainer.innerHTML = errorMessage("No listings match...");

@@ -2,7 +2,7 @@ import { errorMessage } from "../components/error.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { userInfoCard } from "../templates/userInfoCard.mjs";
 import { bidsTitle, cardsContainer, editMediaForm, listingsTitle, profileInfo, profileSearchBar, userBids, userWins, winsTitle } from "../util/variables.mjs";
-import { getBids, getProfile, getProfileListings } from "./read.mjs";
+import { getProfile } from "./read.mjs";
 import { updateProfile } from "./update.mjs";
 import * as storage from "../storage/index.mjs";
 import { bidListHTML } from "../templates/bidList.mjs";
@@ -10,9 +10,9 @@ import { search } from "../query/search.mjs";
 
 export async function buildProfile(data) {
   // Get user profile
-  const userData = await getProfile(data);
+  const userData = await getProfile(data, "");
 
-  const bids = await getBids(userData.name);
+  const bids = await getProfile(userData.name, "/bids");
 
   // Clear containers
   userBids.innerHTML = "";
@@ -53,7 +53,7 @@ export async function buildProfile(data) {
   }
 
   // Handle user listing cards
-  const listings = await getProfileListings(data);
+  const listings = await getProfile(data, "/listings");
 
   if (listings.length === 0) {
     cardsContainer.innerHTML = errorMessage("User has no listings");
