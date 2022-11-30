@@ -23,7 +23,7 @@ import { getListings } from "../listings/read.mjs";
 
 export async function router() {
   // Router-ish
-  if (location.href.includes("index.html")) {
+  if (location.href.includes("index.html" || "")) {
     const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
 
     const sorted = sortTimeAsc(data);
