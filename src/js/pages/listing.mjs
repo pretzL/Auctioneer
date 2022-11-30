@@ -1,6 +1,5 @@
 import { createBid } from "../bid/create.mjs";
 import { sortAmountAsc } from "../components/filters/amountFilter.mjs";
-import { timeUntil } from "../components/timeUntil.mjs";
 import { getListings, getSuggested } from "../listings/read.mjs";
 import { bidListHTML } from "../templates/bidList.mjs";
 import { carouselCardsHTML } from "../templates/carouselCardsContainer.mjs";
@@ -11,7 +10,6 @@ import {
   API_BASE_URL,
   API_LISTINGS_URL,
   bidHistory,
-  bidTimer,
   cardsContainer,
   carouselCardsContainer,
   currentBid,
@@ -21,6 +19,7 @@ import {
   listingDesc,
   listingsParams,
   listingTitle,
+  loggedIn,
   sellerInfo,
 } from "../util/variables.mjs";
 import * as storage from "../storage/index.mjs";
@@ -68,7 +67,16 @@ export async function buildListing(id) {
 
   // Current bid
   currentBid.innerHTML = buildBidInfo(data);
+
   const createBidForm = document.querySelector("#create-bid-form");
+  const createBidButton = document.querySelector("#bid-button");
+  if (loggedIn) {
+    createBidForm.addEventListener("submit", createBid);
+  } else {
+    createBidButton.addEventListener("click", () => {
+      location.href = "./index.html?error=true";
+    });
+  }
   createBidForm.addEventListener("submit", createBid);
 
   // Bid history container

@@ -193,6 +193,31 @@
           </div>
         </section>
       </div>
+      <!--PLEASE LOGIN MODAL-->
+      <input type="checkbox" id="please-login-modal" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
+          <!-- component -->
+          <section class="flex flex-col items-center space-y-10">
+            <div class="alert alert-error shadow-lg w-11/12 rounded">
+              <div class="w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Oops!</span>
+              </div>
+            </div>
+            <p>You must log in to do this! Please log in.</p>
+            <div class="w-full flex justify-center gap-12">
+              <label for="login-modal" class="btn rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">Login</label>
+              <label for="register-modal" class="btn rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">Register</label>
+            </div>
+          </section>
+          <div class="modal-action absolute top-4 right-4 mt-0">
+            <label for="please-login-modal" class="btn">X</label>
+          </div>
+        </div>
+      </div>
       <!--CREATE LISTING MODAL-->
       <input type="checkbox" id="create-listing-modal" class="modal-toggle" />
       <div class="modal">
