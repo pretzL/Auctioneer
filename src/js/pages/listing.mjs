@@ -28,6 +28,7 @@ import { getListingToEdit } from "../listings/update.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { countdownTimer } from "../components/countdown.mjs";
 import { errorMessage } from "../components/error.mjs";
+import { moveCarousel } from "../components/carousel.mjs";
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
@@ -61,10 +62,6 @@ export async function buildListing(id) {
 
   for (let c = 0; c < imageLength; c++) {
     carouselCardsContainer.innerHTML += carouselCardsHTML(data.media[c]);
-    if (c === 0) {
-      carouselCardsContainer.firstElementChild.dataset.carouselItem = "active";
-      carouselCardsContainer.firstElementChild.classList.remove("hidden");
-    }
   }
 
   // Current bid
@@ -111,4 +108,20 @@ export async function buildListing(id) {
 
   // Edit listing
   editButton.addEventListener("click", getListingToEdit(data));
+
+  // Carousel
+
+  // Handle button for carousel sliding
+  document.addEventListener("click", (e) => {
+    let carouselButton;
+    if (e.target.matches(".arrow")) {
+      carouselButton = e.target;
+    } else {
+      carouselButton = e.target.closest(".arrow");
+    }
+
+    if (carouselButton != null) {
+      moveCarousel(carouselButton);
+    }
+  });
 }
