@@ -22,10 +22,10 @@ import { buildListings } from "../pages/listings.mjs";
 import { getListings } from "../listings/read.mjs";
 
 export async function router() {
-  const url = location.href.split("/")[3];
+  const currentPage = location.href;
 
   // Router-ish
-  if (url.includes("index.html") || url === "") {
+  if (currentPage.match("index.html") || !currentPage.match(".html")) {
     const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
 
     const sorted = sortTimeAsc(data);
@@ -59,7 +59,7 @@ export async function router() {
     }
   }
 
-  if (url.includes("profile.html")) {
+  if (currentPage.match("profile.html")) {
     if (!loggedIn) {
       location.href = "./index.html?error=true";
     } else {
@@ -81,7 +81,7 @@ export async function router() {
     }
   }
 
-  if (url.includes("listing.html")) {
+  if (currentPage.match("listing.html")) {
     // QUERY STRINGS
     const queryString = document.location.search;
 
@@ -102,7 +102,7 @@ export async function router() {
     deleteListingButton.addEventListener("click", deleteListing);
   }
 
-  if (url.includes("listings.html")) {
+  if (currentPage.match("listings.html")) {
     // Get the query value
     const queryString = document.location.search;
 
