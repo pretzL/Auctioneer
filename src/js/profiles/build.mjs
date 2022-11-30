@@ -11,10 +11,8 @@ import { search } from "../query/search.mjs";
 export async function buildProfile(data) {
   // Get user profile
   const userData = await getProfile(data, "");
-  console.log(userData);
 
   const bids = await getProfile(userData.name, "/bids");
-  console.log(bids);
 
   // Clear containers
   userBids.innerHTML = "";
