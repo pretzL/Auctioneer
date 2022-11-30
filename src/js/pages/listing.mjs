@@ -37,10 +37,12 @@ export async function buildListing(id) {
   const userInfo = storage.load("user");
 
   // Hide unnecessary buttons
-  if (userInfo.name === data.seller.name) {
-    favoritesButton.classList.add("hidden");
-    editButton.classList.remove("hidden");
-    deleteButton.classList.remove("hidden");
+  if (userInfo) {
+    if (userInfo.name === data.seller.name) {
+      favoritesButton.classList.add("hidden");
+      editButton.classList.remove("hidden");
+      deleteButton.classList.remove("hidden");
+    }
   }
 
   // Title
