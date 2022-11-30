@@ -1,4 +1,22 @@
+import * as storage from "../storage/index.mjs";
+
 export const userInfoCard = (data) => {
+  let avatar = `
+    <label class="flex flex-col w-24 h-24 md:w-32 md:h-32 btn btn-ghost btn-circle">
+      <img id="edit-profile-media" src="${data.avatar}" class="rounded-full w-32 h-32 self-end object-cover object-center" alt="${data.name}'s profile image"/>
+    </label>
+  `;
+
+  const userInfo = storage.load("user");
+
+  if (data.avatar === userInfo.name) {
+    avatar = `
+    <label for="edit-media-modal" class="tooltip flex flex-col w-24 h-24 md:w-32 md:h-32 btn btn-ghost btn-circle" data-tip="Click to edit">
+      <img id="edit-profile-media" src="${data.avatar}" class="rounded-full w-32 h-32 self-end object-cover object-center" alt="${data.name}'s profile image"/>
+    </label>
+    `;
+  }
+
   return `
   <div id="info-text" class="w-full">
     <div class="w-full flex flex-col gap-4">
@@ -9,9 +27,7 @@ export const userInfoCard = (data) => {
     </div>
   </div>
   <div>
-    <label for="edit-media-modal" class="tooltip flex flex-col w-24 h-24 md:w-32 md:h-32 btn btn-ghost btn-circle" data-tip="Click to edit">
-      <img id="edit-profile-media" src="${data.avatar}" class="rounded-full w-32 h-32 self-end object-cover object-center" alt="${data.name}'s profile image"/>
-    </label>
+    ${avatar}
   </div>
   `;
 };
