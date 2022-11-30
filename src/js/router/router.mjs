@@ -25,7 +25,7 @@ export async function router() {
   const url = location.href.split("/")[3];
 
   // Router-ish
-  if (url.includes("index.html") || url.startsWith("")) {
+  if (url.includes("index.html") || url === "") {
     const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
 
     const sorted = sortTimeAsc(data);
