@@ -7,3 +7,48 @@
 		min-h-full
 		rounded;
 }
+
+.carousel-container {
+  --items-per-screen: 1;
+  --carousel-index: 0;
+  transform: translateX(calc(var(--carousel-index) * (-100% - 3rem)));
+  transition: transform 300ms ease-in-out;
+  width: calc(100% - 3rem * 2);
+}
+
+.carousel-card {
+  flex: 0 0 calc(100% / var(--items-per-screen));
+  max-width: calc(100% / var(--items-per-screen));
+  @apply aspect-video
+  h-full
+  mr-12
+  rounded-lg;
+}
+
+.arrow {
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 150ms ease-in-out;
+  @apply z-10
+  flex-grow-0
+  flex-shrink-0
+  w-12
+  h-12
+  cursor-pointer
+  flex
+  flex-col
+  items-center
+  justify-center
+  self-center
+  rounded-full
+  text-white;
+}
+
+.left-arrow {
+}
+
+.right-arrow {
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
