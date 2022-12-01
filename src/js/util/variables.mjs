@@ -1,4 +1,5 @@
 import { isUserLoggedIn } from "../auth/isUserLoggedIn.mjs";
+import * as storage from "../storage/index.mjs";
 
 // API URLs
 export const API_BASE_URL = "https://nf-api.onrender.com";
