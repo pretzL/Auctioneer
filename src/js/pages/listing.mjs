@@ -53,13 +53,13 @@ export async function buildListing(id) {
   // Carousel images
   carouselCardsContainer.innerHTML = "";
 
-  let imageLength = data.media.length;
-  if (data.media.length < 3) {
-    imageLength = 3;
+  let image = data.media;
+  if (data.media.length < 1) {
+    image = ["https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png"];
   }
 
-  for (let c = 0; c < imageLength; c++) {
-    carouselCardsContainer.innerHTML += carouselCardsHTML(data.media[c]);
+  for (let c = 0; c < image.length; c++) {
+    carouselCardsContainer.innerHTML += carouselCardsHTML(image[c]);
   }
 
   // Current bid
