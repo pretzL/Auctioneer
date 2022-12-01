@@ -27,7 +27,7 @@ export function countdownTimer(date) {
     if (timeLeft < 0) {
       clearInterval(timer);
       bidTimer.innerHTML = `
-            <div class="bg-dark-green text-inherit justify-center items-center rounded-box p-4">Bidding ended</div>
+            <div class="btn bg-dark-green shadow-lg text-white text-md">Bidding ended</div>
             `;
     }
   }, 1000);
