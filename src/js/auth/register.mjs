@@ -32,7 +32,7 @@ export async function register(evt) {
     validatedEmail = email.value;
 
     // Validate the avatar field
-    const userAvatar = validateAvatar(avatar);
+    const userAvatar = validateAvatar(avatar.value);
 
     // Construct the data object which is to be sent to the API
     const dataObj = JSON.stringify({
