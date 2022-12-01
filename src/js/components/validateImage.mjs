@@ -1,5 +1,6 @@
 export function validateImage(img) {
   let image;
+
   if (img !== "" && img) {
     image = img;
   } else {
