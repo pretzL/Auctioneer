@@ -1,4 +1,4 @@
-import * as storage from "../storage/index.mjs";
+import { userInfo } from "../util/variables.mjs";
 
 export const userInfoCard = (data) => {
   let avatar = `
@@ -6,8 +6,6 @@ export const userInfoCard = (data) => {
       <img id="edit-profile-media" src="${data.avatar}" class="rounded-full w-32 h-32 self-end object-cover object-center" alt="${data.name}'s profile image"/>
     </label>
   `;
-
-  const userInfo = storage.load("user");
 
   if (data.avatar === userInfo.name) {
     avatar = `

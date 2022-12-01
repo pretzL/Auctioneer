@@ -66,3 +66,6 @@ export const secContainer = document.querySelector("#sec-value");
 
 // isUserLoggedIn
 export const loggedIn = isUserLoggedIn();
+
+// userInfo
+export const userInfo = storage.load("user");

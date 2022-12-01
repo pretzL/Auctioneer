@@ -21,8 +21,8 @@ import {
   listingTitle,
   loggedIn,
   sellerInfo,
+  userInfo,
 } from "../util/variables.mjs";
-import * as storage from "../storage/index.mjs";
 import { getListingToEdit } from "../listings/update.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { countdownTimer } from "../components/countdown.mjs";
@@ -31,9 +31,6 @@ import { moveCarousel } from "../components/carousel.mjs";
 
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
-
-  // Grab user info
-  const userInfo = storage.load("user");
 
   // Hide unnecessary buttons
   if (userInfo) {
