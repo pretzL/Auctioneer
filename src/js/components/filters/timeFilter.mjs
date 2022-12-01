@@ -10,8 +10,8 @@
  */
 export function sortTimeDesc(array) {
   const sortedArray = array.sort(function (a, b) {
-    const timeA = a.updated.toLowerCase();
-    const timeB = b.updated.toLowerCase();
+    const timeA = a.updated;
+    const timeB = b.updated;
     if (timeA <= timeB) {
       return -1;
     }
@@ -35,8 +35,8 @@ export function sortTimeDesc(array) {
  */
 export function sortTimeAsc(array) {
   const sortedArray = array.sort(function (a, b) {
-    const timeA = a.updated.toLowerCase();
-    const timeB = b.updated.toLowerCase();
+    const timeA = a.updated;
+    const timeB = b.updated;
     if (timeA >= timeB) {
       return -1;
     }
