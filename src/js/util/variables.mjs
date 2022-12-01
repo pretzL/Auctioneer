@@ -41,6 +41,7 @@ export const editButton = document.querySelector("#edit-button");
 export const deleteButton = document.querySelector("#delete-button");
 export const deleteListingButton = document.querySelector("#delete-listing-button");
 export const deleteListingModalContent = document.querySelector("#delete-listing-modal-content");
+export const closeCreateListing = document.querySelector("#close-create-listing");
 
 // Profile page elements
 export const profileInfo = document.querySelector("#user-info");

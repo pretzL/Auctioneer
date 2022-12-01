@@ -32,7 +32,7 @@ export const buildBidInfo = (data) => {
             </label>
             <form id="create-bid-form" class="input-group">
               <input type="hidden" class="hidden" value="${data.id}">
-              <input type="number" value="${amount + 10}" class="input input-bordered text-black w-full" />
+              <input type="number" value="${amount + 10}" class="input input-bordered text-black w-full bg-white" />
               <button id="bid-button" class="btn btn-square bg-dark-green text-white">Bid</button>
             </form>
           </div>

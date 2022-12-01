@@ -3,7 +3,7 @@
 import { login } from "./auth/login.mjs";
 import { register } from "./auth/register.mjs";
 import { buildHeader } from "./components/header.mjs";
-import { loginForm, registerForm, createListingForm, searchBar, mediaInput, createListingCheck, loggedIn } from "./util/variables.mjs";
+import { loginForm, registerForm, createListingForm, searchBar, mediaInput, createListingCheck, loggedIn, closeCreateListing } from "./util/variables.mjs";
 import { createListing } from "./listings/create.mjs";
 import { handleQuery } from "./query/handleQuery.mjs";
 import { router } from "./router/router.mjs";
@@ -33,11 +33,8 @@ if (loggedIn) {
 
 // Create Listing Form
 createListingCheck.addEventListener("change", () => {
-  const isChecked = checkIfChecked(createListingCheck);
-  if (isChecked) {
-    if (!loggedIn) {
-      location.href = "./index.html?error=true";
-    }
+  if (!loggedIn) {
+    location.href = "./index.html?error=true";
   }
 });
 
