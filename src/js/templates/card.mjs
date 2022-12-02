@@ -12,7 +12,7 @@ export const cardHTML = (data) => {
 
   const image = validateImage(data.media[0]);
   return `
-    <a href="./listing.html?id=${data.id}" class="w-full h-[300px]">
+    <a href="./listing.html?id=${data.id}" class="w-full h-[300px] listing-card">
       <figure class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg w-full h-full">
         <img src="${image}" alt="Image for '${data.title}'" class="rounded-lg brightness-75 object-cover w-full h-full">
         <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">

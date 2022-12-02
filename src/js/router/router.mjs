@@ -20,6 +20,7 @@ import { editListing } from "../listings/update.mjs";
 import { deleteListing } from "../listings/delete.mjs";
 import { buildListings } from "../pages/listings.mjs";
 import { getListings } from "../listings/read.mjs";
+import { observer } from "../components/infiniteScroll.mjs";
 
 export async function router() {
   const currentPage = location.href;
@@ -34,11 +35,13 @@ export async function router() {
     carouselContainer.innerHTML = "";
 
     for (let i = 0; i < sorted.length; i++) {
-      if (i === 18) {
+      if (i === 9) {
         break;
       }
       cardsContainer.innerHTML += cardHTML(sorted[i]);
     }
+
+    observer(sorted);
 
     for (let c = 0; c < data.length; c++) {
       if (c === 4) {
