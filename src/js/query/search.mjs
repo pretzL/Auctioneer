@@ -14,7 +14,11 @@ export async function search(data, value) {
     if (listing.description) {
       desc = listing.description.toLowerCase().includes(value.toLowerCase());
     }
-    return listing.seller.name.toLowerCase().includes(value.toLowerCase()) || listing.title.toLowerCase().includes(value.toLowerCase()) || desc;
+    let name;
+    if (listing.seller) {
+      name = listing.seller.name.toLowerCase().includes(value.toLowerCase());
+    }
+    return name || listing.title.toLowerCase().includes(value.toLowerCase()) || desc;
   });
   return filtered;
 }
