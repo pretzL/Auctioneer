@@ -13,6 +13,7 @@ export function getListingToEdit(data) {
   desc.value = data.description;
   tags.value = data.tags;
   endsAt.value = data.endsAt;
+  endsAt.disabled = true;
 
   // Grab media gallery
   const mediaGallery = editListingForm.querySelectorAll(`input[data-type="url"]`);

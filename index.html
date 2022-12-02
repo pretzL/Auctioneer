@@ -21,21 +21,24 @@
     <header class="w-full absolute z-10 max-w-screen-2xl">
       <nav class="navbar fixed top-0 left-0 right-0 bg-main-green border-gray-200 px-2 sm:px-4 py-2.5 rounded w-10/12 mx-auto my-0">
         <div class="flex-1">
+          <h1 class="sr-only">Auctioneer</h1>
           <a href="./index.html" class="btn btn-ghost normal-case text-xl"><img src="./img/Logo.png" alt="Auctioneer Logo" class="w-28" /></a>
         </div>
         <div class="flex gap-4">
           <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost btn-circle">
+            <div tabindex="0" class="btn btn-ghost btn-circle">
+              <label class="sr-only">Search</label>
               <div class="indicator">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="white">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
-            </label>
+            </div>
             <div tabindex="0" class="mt-3 card card-compact dropdown-content bg-base-100 shadow">
               <div class="card-body">
                 <form id="search-bar" class="form-control w-full">
                   <div class="input-group w-full">
+                    <label class="sr-only">Search</label>
                     <input type="text" placeholder="Search…" class="input input-bordered" />
                     <button type="submit" class="btn btn-square bg-dark-green text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -49,6 +52,7 @@
           </div>
           <div>
             <label for="create-listing-modal" class="btn btn-ghost btn-circle">
+              <label class="sr-only">Create a listing</label>
               <div class="w-10 rounded-full flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-plus-circle h-7 w-7" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -59,6 +63,7 @@
           </div>
           <div class="dropdown dropdown-end">
             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+              <label class="sr-only">User Profile Icon</label>
               <div class="w-10 rounded-full">
                 <img src="https://cdn.discordapp.com/attachments/931268688412299274/1026475050578231376/no-user-image-icon-0.jpg" alt="user avatar" id="header-profile-img" />
               </div>
@@ -130,7 +135,7 @@
       </div>
       <div class="mt-3 w-11/12 flex flex-col mx-auto my-0 items-center">
         <section>
-          <h1 class="text-black mb-4 text-lg font-bold">Categories</h1>
+          <h2 class="text-black mb-4 text-lg font-bold">Categories</h2>
           <div class="h-36"></div>
         </section>
         <section class="mb-8">
@@ -199,6 +204,7 @@
         <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
           <!-- component -->
           <section class="flex flex-col items-center space-y-10">
+            <h4 class="text-center text-4xl font-medium">Error</h4>
             <div class="alert alert-error shadow-lg w-11/12 rounded">
               <div class="w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
@@ -214,7 +220,7 @@
             </div>
           </section>
           <div class="modal-action absolute top-4 right-4 mt-0">
-            <label for="please-login-modal" class="btn">X</label>
+            <label for="please-login-modal" class="btn"><label class="sr-only">Close Modal</label> X</label>
           </div>
         </div>
       </div>
@@ -228,12 +234,13 @@
             <form class="flex flex-col gap-4" id="create-listing-form">
               <div class="error error-container"></div>
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Title</label>
                 <input type="text" placeholder="Title" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required minlength="3" />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Description</label>
                 <textarea
-                  type="text"
                   placeholder="Description"
                   rows="4"
                   class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
@@ -242,6 +249,7 @@
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Tags</label>
                 <input type="text" placeholder="Tags, separate by comma" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
               </div>
 
@@ -251,6 +259,7 @@
               </div>
 
               <div id="url-input-container" class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Add image URLs. Adding one will make the next input display</label>
                 <input type="text" data-type="url" placeholder="Image URL" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
                 <input
                   type="text"
@@ -307,6 +316,7 @@
             </form>
           </section>
           <div class="modal-action absolute top-4 right-4 mt-0">
+            <label class="sr-only">Close Modal</label>
             <label id="close-create-listing" for="create-listing-modal" class="btn">X</label>
           </div>
         </div>
@@ -321,10 +331,12 @@
             <form class="flex flex-col gap-4" id="login-form">
               <div class="error error-container"></div>
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Email</label>
                 <input type="text" placeholder="Email" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Password</label>
                 <input type="password" placeholder="Password" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required minlength="7" />
               </div>
 
@@ -337,6 +349,7 @@
             </form>
           </section>
           <div class="modal-action absolute top-4 right-4 mt-0">
+            <label class="sr-only">Close Modal</label>
             <label for="login-modal" class="btn">X</label>
           </div>
         </div>
@@ -351,18 +364,22 @@
             <form class="flex flex-col gap-4" id="register-form">
               <div class="error error-container"></div>
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Name</label>
                 <input type="text" placeholder="Name" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required minlength="3" />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Email</label>
                 <input type="text" placeholder="Email" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Password</label>
                 <input type="password" placeholder="Password" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required minlength="7" />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
+                <label class="sr-only">Avatar in URL format</label>
                 <input type="text" placeholder="Avatar" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
               </div>
 
@@ -370,6 +387,7 @@
             </form>
           </section>
           <div class="modal-action absolute top-4 right-4 mt-0">
+            <label class="sr-only">Close Modal</label>
             <label for="register-modal" class="btn">X</label>
           </div>
         </div>

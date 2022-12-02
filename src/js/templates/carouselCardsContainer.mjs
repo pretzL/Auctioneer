@@ -5,7 +5,7 @@ export const carouselCardsHTML = (data) => {
 
   return `
     <div class="carousel-card">
-      <img class="rounded-lg h-full w-full object-cover object-center" src="${image}"/>
+      <img class="rounded-lg h-full w-full object-center" src="${image}"/>
     </div>
   `;
 };

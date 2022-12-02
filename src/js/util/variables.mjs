@@ -52,7 +52,7 @@ export const winsTitle = document.querySelector("#wins-title");
 export const listingsTitle = document.querySelector("#user-listings");
 
 // Listing page elements
-export const listingTitle = document.querySelector("#listing-h1");
+export const listingTitle = document.querySelector("#listing-h2");
 export const listingDesc = document.querySelector("#listing-desc");
 export const sellerInfo = document.querySelector("#seller-info");
 export const currentBid = document.querySelector("#current-bid");

@@ -18,7 +18,7 @@ export const userInfoCard = (data) => {
   return `
   <div id="info-text" class="w-full">
     <div class="w-full flex flex-col gap-4">
-      <h1 class="font-bold mb-4 text-lg">${data.name}</h1>
+      <h2 class="font-bold mb-4 text-lg">${data.name}</h2>
       <p class="text-xs lg:text-base">${data.email}</p>
       <p>Credits: ${data.credits}</p>
       <p>Listings: ${data._count.listings}</p>
