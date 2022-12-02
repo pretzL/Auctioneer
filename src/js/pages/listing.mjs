@@ -98,11 +98,11 @@ export async function buildListing(id) {
   cardsContainer.innerHTML = "";
 
   if (data.tags[0]) {
-    const suggested = await getSuggested(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options, data.tags[0]);
+    const suggested = await getSuggested(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options, data.tags[0].toLowerCase());
 
-    if (suggested.length > 0) {
+    if (suggested.length >= 1) {
       for (let f = 0; f < suggested.length; f++) {
-        if (suggested[f].title === data.title) {
+        if (suggested[f].id === data.id) {
           continue;
         }
         if (f === 6) {
