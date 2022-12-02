@@ -7,7 +7,6 @@ import { loginForm, registerForm, createListingForm, searchBar, mediaInput, crea
 import { createListing } from "./listings/create.mjs";
 import { handleQuery } from "./query/handleQuery.mjs";
 import { router } from "./router/router.mjs";
-import { checkIfChecked } from "./components/checkIfChecked.mjs";
 
 // Register form
 registerForm.addEventListener("submit", register);
