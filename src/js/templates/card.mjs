@@ -16,9 +16,9 @@ export const cardHTML = (data) => {
       <figure class="relative max-w-sm cursor-pointer shadow-xl bg-base-100 rounded-lg w-full h-full">
         <img src="${image}" alt="Image for '${data.title}'" class="rounded-lg brightness-75 object-cover w-full h-full">
         <figcaption class="absolute bottom-6 px-4 text-lg text-white flex flex-col w-full">
-          <h2 class="card-title outline-black">${data.title}</h2>
+          <h2 class="card-title">${data.title}</h2>
             <div class="card-actions justify-end">
-              <label class="btn bg-dark-green">${price}</label>
+              <label class="btn bg-dark-green text-white">${price}</label>
             </div>
         </figcaption>
       </figure>
