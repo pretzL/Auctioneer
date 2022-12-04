@@ -9,7 +9,7 @@ export const API_REGISTER_URL = "/api/v1/auction/auth/register";
 export const API_LOGIN_URL = "/api/v1/auction/auth/login";
 
 // API Parameters
-export const listingsParams = "?_seller=true&_bids=true";
+export const listingsParams = "?_seller=true&_bids=true&_active=true";
 export const profileParams = "?_listings=true";
 
 // Forms
