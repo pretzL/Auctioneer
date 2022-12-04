@@ -19,6 +19,12 @@
   </head>
   <body class="bg-gray-100 max-w-screen-2xl mx-auto my-0">
     <header class="w-full absolute z-10 max-w-screen-2xl">
+      <a id="skip-nav-link" class="fixed top-0 left-0 right-0 text-center bg-gray-700 text-white p-2 translate-x-0 -translate-y-full focus:translate-y-0" href="#main-content"
+        >Skip to main content</a
+      >
+      <a id="skip-nav-link" class="fixed top-0 left-0 right-0 text-center bg-gray-700 text-white p-2 translate-x-0 -translate-y-full focus:translate-y-0" href="#footer"
+        >Skip to footer</a
+      >
       <nav class="navbar fixed top-0 left-0 right-0 bg-main-green border-gray-200 px-2 sm:px-4 py-2.5 rounded w-10/12 mx-auto my-0">
         <div class="flex-1">
           <h1 class="sr-only">Auctioneer</h1>
@@ -78,7 +84,7 @@
         </div>
       </nav>
     </header>
-    <main class="min-h-screen">
+    <main id="main-content" class="min-h-screen">
       <div id="carousel-container" class="carousel w-full h-[500px]">
         <div id="slide1" class="carousel-item relative w-full">
           <div class="flex justify-center items-center w-full h-full animate-pulse bg-gray-300">
@@ -393,7 +399,7 @@
         </div>
       </div>
     </main>
-    <footer class="p-4 w-full sm:p-6 bg-gray-700">
+    <footer id="footer" class="p-4 w-full sm:p-6 bg-gray-700">
       <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
           <a class="btn btn-ghost normal-case text-xl" href="./index.html"><img src="./img/Logo.png" alt="Auctioneer Logo" class="w-28" /></a>
