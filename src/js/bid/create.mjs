@@ -9,8 +9,8 @@ import { API_BASE_URL, API_LISTINGS_URL, userInfo } from "../util/variables.mjs"
  * @param {element} form
  * @example
  * ```js
- * createComment(commentsForm);
- * // Expect a comment to be created using the form input fields provided in the commentsForm element, if it is a form.
+ * createBid(bidForm);
+ * // Expect a bid to be created using the form input fields provided in the bidForm element, if it is a form.
  * ```
  */
 export async function createBid(evt) {

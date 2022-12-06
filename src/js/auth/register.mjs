@@ -10,7 +10,7 @@ import { validateAvatar } from "../components/validateAvatar.mjs";
  * @param {element} evt
  * @example
  * ```js
- * handleRegister(registerForm);
+ * register(registerForm);
  * // Expect the input user information to be sent to the API for validation. If OK, the user will be registered. If not, an error will display.
  * ```
  */
