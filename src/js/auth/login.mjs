@@ -58,7 +58,7 @@ export async function login(evt) {
       storage.save("jwt", json.accessToken);
 
       // Redirect
-      timeout(3000);
+      await timeout(3000);
       location.href = "./index.html";
     }
   } catch (error) {

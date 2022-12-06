@@ -26,7 +26,7 @@ export async function deleteListing() {
     });
 
     errorContainer.innerHTML = successMessage("Edit");
-    timeout(3000);
+    await timeout(3000);
     location.href = "./index.html";
   } catch (error) {
     console.log(error);
