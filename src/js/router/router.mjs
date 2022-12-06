@@ -21,6 +21,7 @@ import { deleteListing } from "../listings/delete.mjs";
 import { buildListings } from "../pages/listings.mjs";
 import { getListings } from "../listings/read.mjs";
 import { observer } from "../components/infiniteScroll.mjs";
+import { addSortListener } from "../pages/index/sortListeners.mjs";
 
 export async function router() {
   const currentPage = location.href;
@@ -30,6 +31,8 @@ export async function router() {
     const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
 
     const sorted = sortTimeAsc(data);
+
+    addSortListener(data);
 
     cardsContainer.innerHTML = "";
     carouselContainer.innerHTML = "";

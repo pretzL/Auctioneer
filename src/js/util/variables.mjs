@@ -71,3 +71,10 @@ export const loggedIn = isUserLoggedIn();
 
 // userInfo
 export const userInfo = storage.load("user");
+
+// Sort buttons
+export const timeSortButton = document.querySelector("#time-sort");
+export const aToZSort = document.querySelector("#a-to-z-sort");
+export const zToASort = document.querySelector("#z-to-a-sort");
+export const todaySort = document.querySelector("#today-sort");
+export const monthSort = document.querySelector("#month-sort");
