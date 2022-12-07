@@ -68,7 +68,7 @@ export async function createListing(evt) {
       errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${json.errors[0].message}`);
     } else {
       errorContainer.innerHTML = successMessage("Creation");
-      timeout(3000);
+      await timeout(3000);
       location.reload();
     }
   } catch (error) {

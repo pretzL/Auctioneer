@@ -6,11 +6,11 @@ import { API_BASE_URL, API_PROFILE_URL, userInfo } from "../util/variables.mjs";
 
 /**
  * Function which initiates what to do when submitting the form editAvatar/editBanner
- * @param {string} img the value to edit
+ * @param {element} evt form to get img from
  * @example
  * ```js
- * updateProfileMedia("avatar", "https://cdn.discordapp.com/attachments/931268688412299274/1026475050578231376/no-user-image-icon-0.jpg")
- * // Expect the function to change the "avatar" value to the provided media URL
+ * updateProfile(form)
+ * // Expect the function to change the "avatar" value to the media URL provided in the form element
  * ```
  */
 export async function updateProfile(evt) {
@@ -46,7 +46,7 @@ export async function updateProfile(evt) {
       errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${json.errors[0].message}`);
     } else {
       errorContainer.innerHTML = successMessage("Profile media edit");
-      timeout(3000);
+      await timeout(3000);
       location.reload();
     }
   } catch (error) {

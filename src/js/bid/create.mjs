@@ -2,15 +2,15 @@ import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import * as storage from "../storage/index.mjs";
 import { timeout } from "../util/timeout.mjs";
-import { API_BASE_URL, API_LISTINGS_URL } from "../util/variables.mjs";
+import { API_BASE_URL, API_LISTINGS_URL, userInfo } from "../util/variables.mjs";
 
 /**
  * Function which initiates what to do when submitting the form
  * @param {element} form
  * @example
  * ```js
- * createComment(commentsForm);
- * // Expect a comment to be created using the form input fields provided in the commentsForm element, if it is a form.
+ * createBid(bidForm);
+ * // Expect a bid to be created using the form input fields provided in the bidForm element, if it is a form.
  * ```
  */
 export async function createBid(evt) {
@@ -47,7 +47,12 @@ export async function createBid(evt) {
       errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${json.errors[0].message}`);
     } else {
       errorContainer.innerHTML = successMessage("Bid");
-      timeout(3000);
+
+      // Update credits
+      const newAmount = Number(userInfo.credits) - amountNum;
+      storage.update("user", "credits", newAmount);
+
+      await timeout(3000);
       location.reload();
     }
   } catch (error) {
