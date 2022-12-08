@@ -2,7 +2,15 @@
 
 import { carouselCardsContainer } from "../util/variables.mjs";
 
-// Carousel slide function, with infinite loop
+/**
+ * Handles carousel sliding when clicking a button
+ * @param {element} button
+ * @example
+ * ```js
+ * button.addEventListener("click", moveCarousel)
+ * // Expect carousel to move when a button is clicked, button must have class "left-arrow" or "right-arrow"
+ * ```
+ */
 export function moveCarousel(button) {
   const carouselContainer = document.querySelector(".carousel-container");
   const carouselIndex = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--carousel-index"));

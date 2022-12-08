@@ -10,7 +10,7 @@ import { API_BASE_URL, API_LISTINGS_URL } from "../util/variables.mjs";
  * @example
  * ```js
  * createListing(listingForm);
- * // Expect a post to be created using the form input fields provided in the postForm element, if it is a form.
+ * // Expect a listing to be created using the form input fields provided in the postForm element, if it is a form.
  * ```
  */
 export async function createListing(evt) {

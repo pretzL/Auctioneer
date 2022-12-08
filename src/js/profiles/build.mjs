@@ -8,6 +8,15 @@ import * as storage from "../storage/index.mjs";
 import { bidListHTML } from "../templates/bidList.mjs";
 import { search } from "../query/search.mjs";
 
+/**
+ * Builds the profile page using API data
+ * @param {array} data data to use to build the page
+ * @example
+ * ```js
+ * buildProfile(apiData);
+ * // Expect a profile page to be built using the api data passed into the function
+ * ```
+ */
 export async function buildProfile(data) {
   // Get user profile
   const userData = await getProfile(data, "");

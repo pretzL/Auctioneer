@@ -1,3 +1,13 @@
+/**
+ * Check if img is a valid image
+ * @param {string} img
+ * @returns image
+ * @example
+ * ```js
+ * validateImage(imgURL)
+ * // Expect return either the passed in image if it is valid or a placeholder image if it is not valid
+ * ```
+ */
 export function validateImage(img) {
   let image;
 

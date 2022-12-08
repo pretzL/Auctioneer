@@ -23,6 +23,14 @@ import { getListings } from "../listings/read.mjs";
 import { observer } from "../components/infiniteScroll.mjs";
 import { addSortListener } from "../pages/index/sortListeners.mjs";
 
+/**
+ * Sets up the page router, which handles which code should be ran on each page
+ * @example
+ * ```js
+ * router();
+ * // Expect pages to be built with the correct information and elements based on the page name
+ * ```
+ */
 export async function router() {
   const currentPage = location.href;
 

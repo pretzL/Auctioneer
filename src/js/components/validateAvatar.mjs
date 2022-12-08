@@ -1,3 +1,13 @@
+/**
+ * Check if avatar is a valid image
+ * @param {string} avatar
+ * @returns image
+ * @example
+ * ```js
+ * validateAvatar(avatarURL)
+ * // Expect return either the passed in image if it is valid or a placeholder image if it is not valid
+ * ```
+ */
 export function validateAvatar(avatar) {
   let userAvatar;
   if (avatar !== "" && avatar) {

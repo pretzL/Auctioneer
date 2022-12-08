@@ -5,6 +5,15 @@ import { sortToday } from "../../components/filters/todayFilter.mjs";
 import { loopCardData } from "../../components/loopCardData.mjs";
 import { aToZSort, cardsContainer, monthSort, timeSortButton, todaySort, zToASort } from "../../util/variables.mjs";
 
+/**
+ * Function which handles adding listeners to sort buttons
+ * @param {array} data data to sort by
+ * @example
+ * ```js
+ * addSortListener(apiData);
+ * // Expect listeners to be added to the buttons on index page and handle sorting of data as they are clicked.
+ * ```
+ */
 export function addSortListener(data) {
   timeSortButton.addEventListener("click", () => {
     const sorted = sortTimeAsc(data);
