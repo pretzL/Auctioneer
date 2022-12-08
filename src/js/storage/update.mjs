@@ -15,5 +15,4 @@ export function update(key, property, value) {
   const obj = storage.load(key);
   obj[property] = value;
   storage.save(key, obj);
-  console.log(`Updated ${key} key with property ${property} and value ${value}!`);
 }
