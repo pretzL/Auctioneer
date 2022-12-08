@@ -5,7 +5,7 @@ import { timeout } from "../util/timeout.mjs";
 import { API_BASE_URL, API_PROFILE_URL, userInfo } from "../util/variables.mjs";
 
 /**
- * Function which initiates what to do when submitting the form editAvatar/editBanner
+ * Function which initiates what to do when submitting the form
  * @param {element} evt form to get img from
  * @example
  * ```js

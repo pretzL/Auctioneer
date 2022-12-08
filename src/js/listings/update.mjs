@@ -4,6 +4,15 @@ import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { timeout } from "../util/timeout.mjs";
 
+/**
+ * Function which initiates what to do when submitting the form
+ * @param {element} data current values of the listing to edit
+ * @example
+ * ```js
+ * getListingToEdit(listingData);
+ * // Expect a modal to open with inputs pre-filled with the current listing information
+ * ```
+ */
 export function getListingToEdit(data) {
   // Assign the inputs from the form to variables
   const [title, desc, tags, endsAt] = editListingForm.elements;
@@ -28,6 +37,15 @@ export function getListingToEdit(data) {
   }
 }
 
+/**
+ * Function which initiates what to do when submitting the form
+ * @param {element} evt edit listing form
+ * @example
+ * ```js
+ * editListing(editListingForm);
+ * // Expect the changed inputs to be sent to the API
+ * ```
+ */
 export async function editListing(evt) {
   evt.preventDefault();
 

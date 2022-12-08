@@ -2,6 +2,15 @@ import { bidTimer, daysContainer, hoursContainer, minsContainer, secContainer } 
 
 // Inspired by https://www.w3schools.com/howto/howto_js_countdown.asp
 
+/**
+ * Takes in a date and creates a countdown timer based on that date
+ * @param {string} date
+ * @example
+ * ```js
+ * countdownTimer("2020-01-01T00:00:00.000Z")
+ * // Expect a countdown running each second which counts down from the given date
+ * ```
+ */
 export function countdownTimer(date) {
   // Parse the endsAt date from the listing
   const dateFix = new Date(date).getTime();

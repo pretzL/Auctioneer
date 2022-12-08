@@ -29,6 +29,15 @@ import { countdownTimer } from "../components/countdown.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { moveCarousel } from "../components/carousel.mjs";
 
+/**
+ * Builds the listing page using a listing ID
+ * @param {string} id id for the listing to build
+ * @example
+ * ```js
+ * buildListing("1234");
+ * // Expect to build the listing page for the listing with id "1234"
+ * ```
+ */
 export async function buildListing(id) {
   const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}/${id}${listingsParams}`, options);
 

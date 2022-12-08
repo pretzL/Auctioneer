@@ -4,6 +4,14 @@ import { successMessage } from "../components/success.mjs";
 import { timeout } from "../util/timeout.mjs";
 import { API_BASE_URL, API_LISTINGS_URL, deleteListingModalContent } from "../util/variables.mjs";
 
+/**
+ * Function which initiates what to do when submitting the form
+ * @example
+ * ```js
+ * deleteListings();
+ * // Expect listing where the function is initialized to be deleted
+ * ```
+ */
 export async function deleteListing() {
   // Grab error container
   const errorContainer = deleteListingModalContent.querySelector(".error-container");

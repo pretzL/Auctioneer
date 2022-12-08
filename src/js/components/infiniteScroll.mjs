@@ -3,6 +3,15 @@
 import { cardHTML } from "../templates/card.mjs";
 import { cardsContainer } from "../util/variables.mjs";
 
+/**
+ * Observes the page where it is initialized and the data which is passed in, in order to create continuous loading of page cards
+ * @param {array} data
+ * @example
+ * ```js
+ * observer(apiData);
+ * // Expect apiData array to be used in order to generate new page cards for each element in the array.
+ * ```
+ */
 export function observer(data) {
   const listingCard = document.querySelectorAll(".listing-card");
 
