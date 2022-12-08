@@ -3,6 +3,7 @@ import * as storage from "../storage/index.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { timeout } from "../util/timeout.mjs";
+import { getQueryParams } from "../util/getQueryParams.mjs";
 
 /**
  * Function which initiates what to do when submitting the form
@@ -82,9 +83,7 @@ export async function editListing(evt) {
   }
 
   // Get listing ID
-  const queryString = document.location.search;
-  const params = new URLSearchParams(queryString);
-  const id = params.get("id");
+  const id = getQueryParams("id");
 
   // Get the auth token
   const jwt = storage.load("jwt");

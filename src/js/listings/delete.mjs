@@ -3,6 +3,7 @@ import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { timeout } from "../util/timeout.mjs";
 import { API_BASE_URL, API_LISTINGS_URL, deleteListingModalContent } from "../util/variables.mjs";
+import { getQueryParams } from "../util/getQueryParams.mjs";
 
 /**
  * Function which initiates what to do when submitting the form
@@ -17,9 +18,7 @@ export async function deleteListing() {
   const errorContainer = deleteListingModalContent.querySelector(".error-container");
 
   // Get listing ID
-  const queryString = document.location.search;
-  const params = new URLSearchParams(queryString);
-  const id = params.get("id");
+  const id = getQueryParams("id");
 
   // Get the auth token
   const jwt = storage.load("jwt");
@@ -33,7 +32,7 @@ export async function deleteListing() {
       },
     });
 
-    errorContainer.innerHTML = successMessage("Edit");
+    errorContainer.innerHTML = successMessage("Delete");
     await timeout(3000);
     location.href = "./index.html";
   } catch (error) {

@@ -1,3 +1,6 @@
+import { errorMessage } from "../components/error.mjs";
+import { errorContainer } from "../util/variables.mjs";
+
 /**
  * Simple API fetch which returns the fetched data
  * @param {string} url url to fetch from
@@ -15,9 +18,14 @@
  * ```
  */
 export async function getListings(url, opt) {
-  const response = await fetch(url, opt);
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(url, opt);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+  }
 }
 
 /**
@@ -38,14 +46,19 @@ export async function getListings(url, opt) {
  * ```
  */
 export async function getSuggested(url, opt, value) {
-  const data = await getListings(url, opt);
+  try {
+    const data = await getListings(url, opt);
 
-  const filtered = data.filter((listing) => {
-    let desc;
-    if (listing.description) {
-      desc = listing.description.toLowerCase().includes(value.toLowerCase());
-    }
-    return listing.seller.name.toLowerCase().includes(value.toLowerCase()) || listing.title.toLowerCase().includes(value.toLowerCase()) || desc;
-  });
-  return filtered;
+    const filtered = data.filter((listing) => {
+      let desc;
+      if (listing.description) {
+        desc = listing.description.toLowerCase().includes(value.toLowerCase());
+      }
+      return listing.seller.name.toLowerCase().includes(value.toLowerCase()) || listing.title.toLowerCase().includes(value.toLowerCase()) || desc;
+    });
+    return filtered;
+  } catch (error) {
+    console.log(error);
+    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+  }
 }

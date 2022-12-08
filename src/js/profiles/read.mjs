@@ -1,5 +1,6 @@
+import { errorMessage } from "../components/error.mjs";
 import { options } from "../util/options.mjs";
-import { API_BASE_URL, API_PROFILE_URL, profileParams } from "../util/variables.mjs";
+import { API_BASE_URL, API_PROFILE_URL, errorContainer, profileParams } from "../util/variables.mjs";
 
 /**
  * Fetch profile data from API
@@ -13,8 +14,13 @@ import { API_BASE_URL, API_PROFILE_URL, profileParams } from "../util/variables.
  * ```
  */
 export async function getProfile(name, type) {
-  const response = await fetch(`${API_BASE_URL}${API_PROFILE_URL}/${name}${type}${profileParams}`, options);
-  const data = await response.json();
+  try {
+    const response = await fetch(`${API_BASE_URL}${API_PROFILE_URL}/${name}${type}${profileParams}`, options);
+    const data = await response.json();
 
-  return data;
+    return data;
+  } catch (error) {
+    console.log(error);
+    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+  }
 }
