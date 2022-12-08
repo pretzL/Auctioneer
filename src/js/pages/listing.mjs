@@ -1,6 +1,6 @@
 import { createBid } from "../bid/create.mjs";
 import { sortAmountAsc } from "../components/filters/amountFilter.mjs";
-import { getListings, getSuggested } from "../listings/read.mjs";
+import { getListings } from "../listings/read.mjs";
 import { bidListHTML } from "../templates/bidList.mjs";
 import { carouselCardsHTML } from "../templates/carouselCardsContainer.mjs";
 import { buildBidInfo } from "../templates/currentBid.mjs";
@@ -24,10 +24,10 @@ import {
   userInfo,
 } from "../util/variables.mjs";
 import { getListingToEdit } from "../listings/update.mjs";
-import { cardHTML } from "../templates/card.mjs";
 import { countdownTimer } from "../components/countdown.mjs";
 import { errorMessage } from "../components/error.mjs";
-import { moveCarousel } from "../components/carousel.mjs";
+import { addCarouselListeners } from "../components/carousel.mjs";
+import { handleSuggested } from "../query/suggested.mjs";
 
 /**
  * Builds the listing page using a listing ID
@@ -83,7 +83,6 @@ export async function buildListing(id) {
       location.href = "./index.html?error=true";
     });
   }
-  createBidForm.addEventListener("submit", createBid);
 
   // Bid history container
   const bidders = sortAmountAsc(data.bids);
@@ -105,23 +104,9 @@ export async function buildListing(id) {
 
   // Suggested listings
   cardsContainer.innerHTML = "";
-
+  console.log(data.tags);
   if (data.tags[0]) {
-    const suggested = await getSuggested(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options, data.tags[0].toLowerCase());
-
-    if (suggested.length >= 1) {
-      for (let f = 0; f < suggested.length; f++) {
-        if (suggested[f].id === data.id) {
-          continue;
-        }
-        if (f === 6) {
-          break;
-        }
-        cardsContainer.innerHTML += cardHTML(suggested[f]);
-      }
-    } else {
-      cardsContainer.innerHTML = errorMessage("No listings match...");
-    }
+    handleSuggested(data);
   } else {
     cardsContainer.innerHTML = errorMessage("No listings match...");
   }
@@ -132,16 +117,5 @@ export async function buildListing(id) {
   // Carousel
 
   // Handle button for carousel sliding
-  document.addEventListener("click", (e) => {
-    let carouselButton;
-    if (e.target.matches(".arrow")) {
-      carouselButton = e.target;
-    } else {
-      carouselButton = e.target.closest(".arrow");
-    }
-
-    if (carouselButton != null) {
-      moveCarousel(carouselButton);
-    }
-  });
+  addCarouselListeners();
 }

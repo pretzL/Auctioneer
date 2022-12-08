@@ -22,6 +22,7 @@ import { buildListings } from "../pages/listings.mjs";
 import { getListings } from "../listings/read.mjs";
 import { observer } from "../components/infiniteScroll.mjs";
 import { addSortListener } from "../pages/index/sortListeners.mjs";
+import { getQueryParams } from "../util/getQueryParams.mjs";
 
 /**
  * Sets up the page router, which handles which code should be ran on each page
@@ -52,8 +53,6 @@ export async function router() {
       cardsContainer.innerHTML += cardHTML(sorted[i]);
     }
 
-    console.log(sorted);
-
     observer(sorted);
 
     for (let c = 0; c < data.length; c++) {
@@ -64,11 +63,7 @@ export async function router() {
     }
 
     // Error handling
-    const queryString = document.location.search;
-
-    const params = new URLSearchParams(queryString);
-
-    const error = params.get("error");
+    const error = getQueryParams("error");
 
     if (error) {
       pleaseLoginCheck.checked = true;
@@ -83,11 +78,7 @@ export async function router() {
       const userInfo = storage.load("user");
 
       // QUERY STRINGS
-      const queryString = document.location.search;
-
-      const params = new URLSearchParams(queryString);
-
-      const name = params.get("name");
+      const name = getQueryParams("name");
 
       if (!name) {
         location.href = `./profile.html?name=${userInfo.name}`;
@@ -99,11 +90,7 @@ export async function router() {
 
   if (currentPage.match("listing.html")) {
     // QUERY STRINGS
-    const queryString = document.location.search;
-
-    const params = new URLSearchParams(queryString);
-
-    const id = params.get("id");
+    const id = getQueryParams("id");
 
     if (!id) {
       location.href = `./index.html`;
@@ -120,11 +107,7 @@ export async function router() {
 
   if (currentPage.match("listings.html")) {
     // Get the query value
-    const queryString = document.location.search;
-
-    const params = new URLSearchParams(queryString);
-
-    const query = params.get("query");
+    const query = getQueryParams("query");
 
     if (!query) {
       location.href = `./index.html`;
