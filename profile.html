@@ -307,7 +307,15 @@
             <form class="flex flex-col gap-4" id="create-listing-form">
               <div class="error error-container"></div>
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
-                <input type="text" placeholder="Title" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required minlength="3" />
+                <input
+                  type="text"
+                  placeholder="Title"
+                  class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  required
+                  minlength="3"
+                  maxlength="150"
+                  title="A title is required"
+                />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
@@ -325,7 +333,13 @@
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
                 <label for="date-picker" class="w-full border-none bg-transparent outline-none italic">End auction by</label>
-                <input type="datetime-local" id="date-picker" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+                <input
+                  type="datetime-local"
+                  id="date-picker"
+                  class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  required
+                  title="Listing end date is required"
+                />
               </div>
 
               <div id="url-input-container" class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
@@ -399,11 +413,25 @@
             <form class="flex flex-col gap-4" id="login-form">
               <div class="error error-container"></div>
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
-                <input type="text" placeholder="Email" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required />
+                <input
+                  type="email"
+                  placeholder="name@email.com"
+                  class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  required
+                  pattern="[\w\-.]+@stud.noroff.no$"
+                  title="Only valid Noroff emails under the '@stud.noroff.no' domain are accepted"
+                />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
-                <input type="password" placeholder="Password" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required minlength="7" />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  required
+                  minlength="8"
+                  title="Password must be at least 8 characters"
+                />
               </div>
 
               <button type="submit" class="transform rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">LOG IN</button>
@@ -429,15 +457,36 @@
             <form class="flex flex-col gap-4" id="register-form">
               <div class="error error-container"></div>
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
-                <input type="text" placeholder="Name" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required minlength="3" />
+                <input
+                  type="text"
+                  placeholder="Name"
+                  class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  required
+                  minlength="3"
+                  title="Must not contain punctuation symbols other than underscore (_)"
+                />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
-                <input type="text" placeholder="Email" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required />
+                <input
+                  type="email"
+                  placeholder="name@email.com"
+                  class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  required
+                  pattern="[\w\-.]+@stud.noroff.no$"
+                  title="Only valid Noroff emails under the '@stud.noroff.no' domain are accepted"
+                />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
-                <input type="password" placeholder="Password" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" required minlength="7" />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                  required
+                  minlength="8"
+                  title="Password must be at least 8 characters"
+                />
               </div>
 
               <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
