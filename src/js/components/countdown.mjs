@@ -8,7 +8,7 @@ import { bidTimer, daysContainer, hoursContainer, minsContainer, secContainer } 
  * @example
  * ```js
  * countdownTimer("2020-01-01T00:00:00.000Z")
- * // Expect a countdown running each second which counts down from the given date
+ * // Expect a countdown running each second which counts down from today's date until the given date
  * ```
  */
 export function countdownTimer(date) {
