@@ -47,7 +47,6 @@ export async function buildProfile(data) {
     bidsTitle.innerHTML = `${userData.name}'s Bids`;
     winsTitle.innerHTML = `${userData.name}'s Wins`;
     listingsTitle.innerHTML = `${userData.name}'s Listings`;
-    favsTitle.innerHTML = `${userData.name}'s Favorites`;
 
     // Handle wins
     const wins = userData.wins;
@@ -87,17 +86,6 @@ export async function buildProfile(data) {
       }
     }
 
-    // Handle user listing cards
-    const favorites = storage.load("favorites");
-
-    if (favorites.length === 0) {
-      favsContainer.innerHTML = errorMessage("User has no listings");
-    } else {
-      for (let c = 0; c < favorites.length; c++) {
-        favsContainer.innerHTML += cardHTML(favorites[c]);
-      }
-    }
-
     // Handle edit profile media
     editMediaForm.addEventListener("submit", updateProfile);
 
@@ -110,6 +98,18 @@ export async function buildProfile(data) {
         email: userData.email,
         name: userData.name,
       });
+
+      // Handle user favorites cards
+      favsTitle.innerHTML = `${userData.name}'s Favorites`;
+      const favorites = storage.load("favorites");
+
+      if (favorites.length === 0) {
+        favsContainer.innerHTML = errorMessage("User has no listings");
+      } else {
+        for (let c = 0; c < favorites.length; c++) {
+          favsContainer.innerHTML += cardHTML(favorites[c]);
+        }
+      }
     }
 
     // Handle profile search bar
