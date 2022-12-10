@@ -11,7 +11,7 @@ import * as storage from "../storage/index.mjs";
 export function isUserLoggedIn() {
   const checkAuth = storage.load("jwt");
 
-  if (checkAuth) {
+  if (checkAuth && checkAuth.length > 0) {
     return true;
   } else {
     return false;
