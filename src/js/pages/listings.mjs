@@ -6,6 +6,8 @@ import { options } from "../util/options.mjs";
 import { API_BASE_URL, API_LISTINGS_URL, listingsParams } from "../util/variables.mjs";
 import { observer } from "../components/infiniteScroll.mjs";
 import { errorMessage } from "../components/error.mjs";
+import { loopCardData } from "../components/loopCardData.mjs";
+import { addSortListener } from "./index/sortListeners.mjs";
 
 /**
  * Builds the listings page using the query string set by the user
@@ -35,14 +37,11 @@ export async function buildListings(query) {
 
     cardsContainer.innerHTML = "";
 
-    for (let i = 0; i < result.length; i++) {
-      if (i === 9) {
-        break;
-      }
-      cardsContainer.innerHTML += cardHTML(result[i]);
-    }
+    loopCardData(result, 9);
 
     observer(result);
+
+    addSortListener(result);
   } catch (error) {
     console.log(error);
     errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
