@@ -22,7 +22,7 @@ export const carouselHTML = (data, number) => {
           <a href="./listing.html?id=${data.id}" class="w-full h-full">
             <img class="w-full h-full bg-gray-800 brightness-50 object-cover object-center" src="${data.media[0]}" alt="Image of ${data.title}" onerror='this.src="https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png"'>
             <div class="absolute w-full left-0 right-0 top-96 flex flex-col gap-4 text-white ml-8 md:ml-36">
-              <h2 class="card-title text-white ">${data.title}</h2>
+              <h2 class="card-title text-white truncate">${data.title}</h2>
               <div class="card-actions">
                 <label class="btn bg-dark-green text-white">${price}</label>
               </div>

@@ -46,7 +46,7 @@ export async function updateProfile(evt) {
       errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${json.errors[0].message}`);
     } else {
       errorContainer.innerHTML = successMessage("Profile media edit");
-      await timeout(3000);
+      await timeout(1500);
       location.reload();
     }
   } catch (error) {

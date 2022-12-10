@@ -11,7 +11,7 @@ export const bidListHTML = (bid) => {
   if (bid.listing) {
     bidBody = `
         <a href="./listing.html?id=${bid.listing.id}" class="w-full">
-          <p>${bid.listing.title}</p>
+          <p class="truncate">${bid.listing.title}</p>
           <p class="text-sm">${dateFix}</p>
         </a>
     `;
