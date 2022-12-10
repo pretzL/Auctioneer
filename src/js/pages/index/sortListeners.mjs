@@ -18,26 +18,26 @@ export function addSortListener(data) {
   timeSortButton.addEventListener("click", () => {
     const sorted = sortTimeAsc(data);
     cardsContainer.innerHTML = "";
-    loopCardData(sorted);
+    loopCardData(sorted, 9);
   });
   aToZSort.addEventListener("click", () => {
     const sorted = sortTitleDesc(data);
     cardsContainer.innerHTML = "";
-    loopCardData(sorted);
+    loopCardData(sorted, 9);
   });
   zToASort.addEventListener("click", () => {
     const sorted = sortTitleAsc(data);
     cardsContainer.innerHTML = "";
-    loopCardData(sorted);
+    loopCardData(sorted, 9);
   });
   todaySort.addEventListener("click", () => {
     const sorted = sortToday(data);
     cardsContainer.innerHTML = "";
-    loopCardData(sorted);
+    loopCardData(sorted, 9);
   });
   monthSort.addEventListener("click", () => {
     const sorted = sortMonth(data);
     cardsContainer.innerHTML = "";
-    loopCardData(sorted);
+    loopCardData(sorted, 9);
   });
 }

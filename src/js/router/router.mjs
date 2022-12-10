@@ -23,6 +23,7 @@ import { getListings } from "../listings/read.mjs";
 import { observer } from "../components/infiniteScroll.mjs";
 import { addSortListener } from "../pages/index/sortListeners.mjs";
 import { getQueryParams } from "../util/getQueryParams.mjs";
+import { loopCardData } from "../components/loopCardData.mjs";
 
 /**
  * Sets up the page router, which handles which code should be ran on each page
@@ -46,12 +47,7 @@ export async function router() {
     cardsContainer.innerHTML = "";
     carouselContainer.innerHTML = "";
 
-    for (let i = 0; i < sorted.length; i++) {
-      if (i === 9) {
-        break;
-      }
-      cardsContainer.innerHTML += cardHTML(sorted[i]);
-    }
+    loopCardData(sorted, 9);
 
     for (let c = 0; c < data.length; c++) {
       if (c === 4) {
