@@ -87,7 +87,7 @@
     <main id="main-content" class="min-h-screen mt-8 w-10/12 mx-auto my-0">
       <div class="error-container mb-8"></div>
       <div class="grid grid-cols-1 grid-rows-2 gap-8 w-full md:grid-cols-4">
-        <div id="carousel-wrapper" class="box md:row-span-5 md:col-span-2">
+        <div id="carousel-wrapper" class="box md:row-span-5 md:col-span-2 order-1">
           <div id="listing-carousel" class="flex justify-center overflow-hidden w-full h-full">
             <button id="left-arrow" class="arrow left-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -110,7 +110,7 @@
             </button>
           </div>
         </div>
-        <div id="seller-info" class="box md:row-start-1 md:col-start-3 md:col-span-2 bg-main-green text-white p-4 shadow-xl">
+        <div id="seller-info" class="box md:row-start-1 md:col-start-3 md:col-span-2 bg-main-green text-white p-4 shadow-xl order-5 md:order-2">
           <div role="status" class="max-w-sm animate-pulse flex gap-4 items-center">
             <svg class="w-28 h-28 text-gray-200" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -127,7 +127,7 @@
             </div>
           </div>
         </div>
-        <div id="current-bid" class="box md:row-start-2 md:col-start-3 md:col-span-2 bg-main-green text-white p-4 shadow-xl">
+        <div id="current-bid" class="box md:row-start-2 md:col-start-3 md:col-span-2 bg-main-green text-white p-4 shadow-xl order-6 md:order-3">
           <div role="status" class="max-w-sm animate-pulse">
             <div class="h-4.5 bg-sky-100 rounded-full w-48 mb-4"></div>
             <div class="h-3 bg-sky-100 rounded-full max-w-[360px] mb-2.5"></div>
@@ -135,7 +135,7 @@
             <span class="sr-only">Loading...</span>
           </div>
         </div>
-        <div id="bid-history" class="box md:row-span-6 md:col-span-2 text-black flex flex-col gap-4">
+        <div id="bid-history" class="box md:row-span-6 md:col-span-2 text-black flex flex-col gap-4 order-7 md:order-6">
           <div class="bg-light-green px-2 py-2 rounded shadow-xl">
             <div role="status" class="animate-pulse flex items-center gap-2 w-full">
               <svg class="w-12 h-12 text-gray-200" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -185,12 +185,12 @@
             </div>
           </div>
         </div>
-        <div class="modal-action flex gap-4 justify-center md:justify-start items-center mt-0">
+        <div class="modal-action flex gap-4 justify-center md:justify-start items-center mt-0 order-3 md:order-6">
           <label id="favorites-button" class="btn bg-dark-green shadow-lg text-white text-md">Add to favorites</label>
           <label id="edit-button" for="edit-listing-modal" class="btn bg-dark-green shadow-lg text-white hidden text-md">Edit Listing</label>
           <label id="delete-button" for="delete-listing-modal" class="btn bg-dark-green shadow-lg text-white hidden text-md">Delete Listing</label>
         </div>
-        <div id="bid-timer" class="box flex w-[300px] md:w-full text-white sm:col-start-1 lg:col-start-2">
+        <div id="bid-timer" class="box flex w-[300px] md:w-full text-white justify-center md:justify-start sm:col-start-1 xl:col-start-2 order-4 md:order-6">
           <div class="grid grid-flow-col gap-4 text-center auto-cols-max">
             <div class="flex flex-col p-2 bg-dark-green text-inherit justify-center items-center rounded-box">
               <span class="countdown font-mono text-3xl">
@@ -218,7 +218,7 @@
             </div>
           </div>
         </div>
-        <div id="listing-description" class="box md:row-span-2 md:col-span-2">
+        <div id="listing-description" class="box md:row-span-2 md:col-span-2 order-2 md:order-7">
           <h2 id="listing-h2" class="mb-4 text-xl font-semibold text-black truncate">
             <div role="status" class="max-w-sm animate-pulse">
               <div class="h-6 bg-sky-100 rounded-full w-48 mb-4"></div>
