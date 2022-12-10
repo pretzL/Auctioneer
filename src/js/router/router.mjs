@@ -53,8 +53,6 @@ export async function router() {
       cardsContainer.innerHTML += cardHTML(sorted[i]);
     }
 
-    observer(sorted);
-
     for (let c = 0; c < data.length; c++) {
       if (c === 4) {
         break;
