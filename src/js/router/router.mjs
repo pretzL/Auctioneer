@@ -68,13 +68,13 @@ export async function router() {
     if (!loggedIn) {
       location.href = "./index.html?error=true";
     } else {
-      // Get user info
-      const userInfo = storage.load("user");
-
       // QUERY STRINGS
       const name = getQueryParams("name");
 
       if (!name) {
+        // Get user info
+        const userInfo = storage.load("user");
+
         location.href = `./profile.html?name=${userInfo.name}`;
       } else {
         buildProfile(name);

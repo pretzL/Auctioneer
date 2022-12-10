@@ -1,7 +1,19 @@
 import { errorMessage } from "../components/error.mjs";
 import { cardHTML } from "../templates/card.mjs";
 import { userInfoCard } from "../templates/userInfoCard.mjs";
-import { bidsTitle, cardsContainer, editMediaForm, errorContainer, listingsTitle, profileInfo, userBids, userWins, winsTitle } from "../util/variables.mjs";
+import {
+  bidsTitle,
+  cardsContainer,
+  editMediaForm,
+  errorContainer,
+  favsContainer,
+  favsTitle,
+  listingsTitle,
+  profileInfo,
+  userBids,
+  userWins,
+  winsTitle,
+} from "../util/variables.mjs";
 import { getProfile } from "./read.mjs";
 import { updateProfile } from "./update.mjs";
 import * as storage from "../storage/index.mjs";
@@ -28,6 +40,7 @@ export async function buildProfile(data) {
     userBids.innerHTML = "";
     userWins.innerHTML = "";
     cardsContainer.innerHTML = "";
+    favsContainer.innerHTML = "";
 
     // Add main user information
     profileInfo.innerHTML = userInfoCard(userData);
@@ -85,6 +98,18 @@ export async function buildProfile(data) {
         email: userData.email,
         name: userData.name,
       });
+
+      // Handle user favorites cards
+      favsTitle.innerHTML = `${userData.name}'s Favorites`;
+      const favorites = storage.load("favorites");
+
+      if (favorites.length === 0) {
+        favsContainer.innerHTML = errorMessage("User has no listings");
+      } else {
+        for (let c = 0; c < favorites.length; c++) {
+          favsContainer.innerHTML += cardHTML(favorites[c]);
+        }
+      }
     }
 
     // Handle profile search bar

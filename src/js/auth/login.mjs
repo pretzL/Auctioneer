@@ -54,6 +54,9 @@ export async function login(evt) {
         credits: json.credits,
       });
 
+      // Save an empty array for favorites
+      storage.save("favorites", []);
+
       // Save authentication token
       storage.save("jwt", json.accessToken);
 

@@ -51,6 +51,8 @@ export const bidsTitle = document.querySelector("#bids-title");
 export const userWins = document.querySelector("#user-wins-content");
 export const winsTitle = document.querySelector("#wins-title");
 export const listingsTitle = document.querySelector("#user-listings");
+export const favsTitle = document.querySelector("#user-favs");
+export const favsContainer = document.querySelector("#favs-container");
 
 // Listing page elements
 export const listingTitle = document.querySelector("#listing-h2");

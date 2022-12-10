@@ -28,6 +28,8 @@ import { countdownTimer } from "../components/countdown.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { addCarouselListeners } from "../components/carousel.mjs";
 import { handleSuggested } from "../query/suggested.mjs";
+import { handleFav } from "../favorites/handle.mjs";
+import { setTitle } from "../favorites/find.mjs";
 
 /**
  * Builds the listing page using a listing ID
@@ -104,7 +106,7 @@ export async function buildListing(id) {
 
   // Suggested listings
   cardsContainer.innerHTML = "";
-  console.log(data.tags);
+
   if (data.tags[0]) {
     handleSuggested(data);
   } else {
@@ -118,4 +120,11 @@ export async function buildListing(id) {
 
   // Handle button for carousel sliding
   addCarouselListeners();
+
+  // Favorites button
+  favoritesButton.addEventListener("click", (e) => {
+    handleFav(e.target, data);
+  });
+
+  favoritesButton.innerText = setTitle(data);
 }
