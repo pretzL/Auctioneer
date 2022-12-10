@@ -33,7 +33,7 @@ export async function deleteListing() {
     });
 
     errorContainer.innerHTML = successMessage("Delete");
-    await timeout(3000);
+    await timeout(1500);
     location.href = "./index.html";
   } catch (error) {
     console.log(error);

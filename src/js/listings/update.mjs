@@ -105,7 +105,7 @@ export async function editListing(evt) {
       errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${json.errors[0].message}`);
     } else {
       errorContainer.innerHTML = successMessage("Edit");
-      await timeout(3000);
+      await timeout(1500);
       location.reload();
     }
   } catch (error) {

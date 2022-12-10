@@ -18,8 +18,18 @@ import { errorMessage } from "../components/error.mjs";
  */
 export async function buildListings(query) {
   try {
-    const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
-    const result = await search(data, query);
+    let result = [];
+    if (query) {
+      if (query === "all") {
+        const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
+        result.push(...data);
+        const data2 = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}&offset=100`, options);
+        result.push(...data2);
+      } else {
+        const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
+        result.push(await search(data, query));
+      }
+    }
 
     cardsContainer.innerHTML = "";
 

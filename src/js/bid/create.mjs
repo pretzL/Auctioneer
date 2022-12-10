@@ -52,7 +52,7 @@ export async function createBid(evt) {
       const newAmount = Number(userInfo.credits) - amountNum;
       storage.update("user", "credits", newAmount);
 
-      await timeout(3000);
+      await timeout(1500);
       location.reload();
     }
   } catch (error) {

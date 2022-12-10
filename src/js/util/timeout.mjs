@@ -17,7 +17,7 @@ function cooldown(ms) {
  * @param {number} time the number of milliseconds to set a timer for
  * @example
  * ```js
- * timeout(3000)
+ * timeout(1500)
  * // Creates a cooldown for 1 second before refreshing the page
  * ```
  */
