@@ -24,7 +24,7 @@ export async function getListings(url, opt) {
     return data;
   } catch (error) {
     console.log(error);
-    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+    errorContainer.innerHTML = errorMessage("Oops, something went wrong... " + error);
   }
 }
 
@@ -59,6 +59,6 @@ export async function getSuggested(url, opt, value) {
     return filtered;
   } catch (error) {
     console.log(error);
-    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+    errorContainer.innerHTML = errorMessage("Oops, something went wrong... " + error);
   }
 }

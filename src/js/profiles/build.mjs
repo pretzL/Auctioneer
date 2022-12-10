@@ -116,6 +116,6 @@ export async function buildProfile(data) {
     addProfileSearchBar(listings);
   } catch (error) {
     console.log(error);
-    errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
+    errorContainer.innerHTML = errorMessage("Oops, something went wrong... " + error);
   }
 }
