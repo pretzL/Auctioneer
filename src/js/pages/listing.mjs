@@ -78,12 +78,10 @@ export async function buildListing(id) {
 
   const createBidForm = document.querySelector("#create-bid-form");
   const createBidButton = document.querySelector("#bid-button");
-  if (loggedIn) {
-    createBidForm.addEventListener("submit", createBid);
+  if (!loggedIn) {
+    createBidButton.disabled = true;
   } else {
-    createBidButton.addEventListener("click", () => {
-      location.href = "./index.html?error=true";
-    });
+    createBidForm.addEventListener("submit", createBid);
   }
 
   // Bid history container
