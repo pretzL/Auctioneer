@@ -29,6 +29,8 @@ export async function buildListings(query) {
         const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
         result.push(await search(data, query));
       }
+    } else {
+      location.href = "./index.html";
     }
 
     cardsContainer.innerHTML = "";
