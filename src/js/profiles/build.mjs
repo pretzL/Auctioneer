@@ -104,7 +104,7 @@ export async function buildProfile(data) {
       const favorites = storage.load("favorites");
 
       if (favorites.length === 0) {
-        favsContainer.innerHTML = errorMessage("User has no listings");
+        favsContainer.innerHTML = errorMessage("User has no favorites");
       } else {
         for (let c = 0; c < favorites.length; c++) {
           favsContainer.innerHTML += cardHTML(favorites[c]);
