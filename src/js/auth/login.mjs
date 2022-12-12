@@ -62,7 +62,7 @@ export async function login(evt) {
 
       // Redirect
       await timeout(1500);
-      location.href = "./index.html";
+      location.href = "./profile.html";
     }
   } catch (error) {
     console.log(error);

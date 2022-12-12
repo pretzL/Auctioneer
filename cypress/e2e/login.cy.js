@@ -7,7 +7,7 @@ describe("Authentication", () => {
   it("will login", () => {
     cy.visit("/");
     cy.wait(1000);
-    cy.get("#user-dropdown-button:visible").click();
+    cy.get("#user-dropdown-button").click();
     cy.wait(500);
     cy.get("#login-modal-label:visible").click();
     cy.wait(1500);
@@ -15,8 +15,8 @@ describe("Authentication", () => {
     cy.get("input[type='password']:visible").should("exist").type("123456789");
     cy.get("button[type='submit']:visible").click();
     cy.wait(3000);
-    cy.then(() => expect(window.localStorage.getItem("user")).to.not.be.null);
-    cy.then(() => expect(window.localStorage.getItem("jwt")).to.not.be.null);
+    cy.then(() => expect(window.localStorage.getItem("user")).to.have.length.above(3));
+    cy.then(() => expect(window.localStorage.getItem("jwt")).to.have.length.above(3));
     cy.url().should("include", "profile");
   });
 
@@ -31,8 +31,10 @@ describe("Authentication", () => {
     cy.get("input[type='password']:visible").should("exist").type("123456789");
     cy.get("button[type='submit']:visible").click();
     cy.wait(3000);
-    cy.then(() => expect(window.localStorage.getItem("user")).to.be.null);
-    cy.then(() => expect(window.localStorage.getItem("jwt")).to.be.null);
+    cy.get("input[type='email']:invalid").invoke("prop", "validationMessage").should("include", "Please match the requested format");
+    cy.wait(1000);
+    cy.then(() => expect(window.localStorage.getItem("user")).to.have.length.lessThan(3));
+    cy.then(() => expect(window.localStorage.getItem("jwt")).to.have.length.lessThan(3));
     cy.url().should("not.include", "profile");
   });
 
@@ -47,8 +49,11 @@ describe("Authentication", () => {
     cy.get("input[type='password']:visible").should("exist").type("1234");
     cy.get("button[type='submit']:visible").click();
     cy.wait(3000);
-    cy.then(() => expect(window.localStorage.getItem("user")).to.be.null);
-    cy.then(() => expect(window.localStorage.getItem("jwt")).to.be.null);
+    cy.get(".alert").contains("Error");
+    cy.wait(1000);
+    cy.then(() => expect(window.localStorage.getItem("user")).to.have.length.lessThan(3));
+    cy.then(() => expect(window.localStorage.getItem("jwt")).to.have.length.lessThan(3));
+    cy.wait(1000);
     cy.url().should("not.include", "profile");
   });
 });
