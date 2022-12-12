@@ -1,4 +1,4 @@
-import { API_BASE_URL, API_REGISTER_URL, loginCheck, registerCheck } from "../util/variables.mjs";
+import { API_BASE_URL, API_REGISTER_URL, loginCheck, loginForm, registerCheck } from "../util/variables.mjs";
 import { errorMessage } from "../components/error.mjs";
 import { successMessage } from "../components/success.mjs";
 import { validateEmail } from "../components/validateEmail.mjs";
@@ -68,6 +68,9 @@ export async function register(evt) {
         await timeout(1500);
         registerCheck.checked = false;
         loginCheck.checked = true;
+
+        loginForm.querySelector("input[type=email]").value = validatedEmail;
+        loginForm.querySelector("input[type=password]").value = password.value;
       }
     } catch (error) {
       console.log(error);

@@ -49,7 +49,7 @@ export async function login(evt) {
       }
       errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${message}`);
     } else {
-      errorContainer.style.display = "none";
+      errorContainer.innerHTML = "";
       errorContainer.innerHTML = successMessage("Login");
 
       // Save user info
