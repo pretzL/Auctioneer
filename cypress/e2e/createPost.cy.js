@@ -24,7 +24,7 @@ describe("Create Post", () => {
       .should("exist")
       .type("https://cdn.discordapp.com/attachments/729294434491170856/1027146979110817802/brooke-lark-M4E7X3z80PQ-unsplash_700px-test.jpg");
     cy.get("textarea[name=desc]").should("exist").type("I made this using Cypress so if anything went wrong, don't kill me");
-    cy.get("input[name=date]").should("exist").type("2024-01-01T00:00:00");
+    cy.get("input[name=date]").should("exist").type("2023-05-05T00:00:00");
     cy.get("button[type='submit']:visible").click();
     cy.wait(5000);
     cy.url().should("include", "listing.html?id");
@@ -42,7 +42,7 @@ describe("Create Post", () => {
     cy.wait(2000);
     cy.clearLocalStorage();
     cy.get("input[name=title]").should("exist").type("Creating a post in Cypress");
-    cy.get("input[name=date]").should("exist").type("2024-01-01T00:00:00");
+    cy.get("input[name=date]").should("exist").type("2023-05-05T00:00:00");
     cy.get("button[type='submit']:visible").click();
     cy.wait(2000);
     cy.get(".alert").contains("Error");
@@ -66,7 +66,7 @@ describe("Create Post", () => {
       .should("exist")
       .type("https://cdn.discordapp.com/attachments/729294434491170856/1027146979110817802/brooke-lark-M4E7X3z80PQ-unsplash_700px-test.jpg");
     cy.get("textarea[name=desc]").should("exist").type("I made this using Cypress so if anything went wrong, don't kill me");
-    cy.get("input[name=date]").should("exist").type("2024-01-01T00:00:00");
+    cy.get("input[name=date]").should("exist").type("2023-05-05T00:00:00");
     cy.get("button[type='submit']:visible").click();
     cy.get("input[name=title]:invalid").invoke("prop", "validationMessage").should("include", "Please fill out this field");
   });

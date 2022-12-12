@@ -55,7 +55,14 @@ export async function register(evt) {
       const json = await response.json();
 
       if (json.errors) {
-        errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${json.errors[0].message}`);
+        let message;
+        if (json.errors[0].message) {
+          message = json.errors[0].message;
+        }
+        if (json.errors[0].code) {
+          message = json.errors[0].code;
+        }
+        errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${message}`);
       } else {
         errorContainer.innerHTML = successMessage("Registration");
         await timeout(1500);
