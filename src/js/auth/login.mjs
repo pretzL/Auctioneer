@@ -41,7 +41,13 @@ export async function login(evt) {
     const json = await response.json();
 
     if (json.errors) {
-      errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${json.errors[0].message}`);
+      let message;
+      if (json.errors[0].message) {
+        message = json.errors[0].message;
+      } else {
+        message = json.errors[0].code;
+      }
+      errorContainer.innerHTML = errorMessage(`Error ${json.statusCode}, ${json.status}: ${message}`);
     } else {
       errorContainer.style.display = "none";
       errorContainer.innerHTML = successMessage("Login");
@@ -62,7 +68,7 @@ export async function login(evt) {
 
       // Redirect
       await timeout(1500);
-      location.href = "./index.html";
+      location.href = "./profile.html";
     }
   } catch (error) {
     console.log(error);
