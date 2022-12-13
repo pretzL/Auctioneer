@@ -3,7 +3,6 @@ import { cardHTML } from "../templates/card.mjs";
 import { cardsContainer, profileSearchBar } from "../util/variables.mjs";
 
 export function addProfileSearchBar(data) {
-  console.log(data);
   profileSearchBar.addEventListener("input", async (e) => {
     const value = e.target.value;
 

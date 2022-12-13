@@ -63,7 +63,6 @@ export async function createListing(evt) {
     });
 
     const json = await response.json();
-    console.log(json);
     if (json.errors) {
       let message;
       if (json.errors[0].message) {
