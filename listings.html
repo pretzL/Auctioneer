@@ -307,7 +307,7 @@
           <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
             <!-- component -->
             <section class="flex w-[30rem] flex-col space-y-10">
-              <h4 class="text-center text-4xl font-medium">Create a listing!</h4>
+              <h4 class="text-center text-3xl font-medium">Create a listing!</h4>
               <form class="flex flex-col gap-4" id="create-listing-form">
                 <div class="error error-container"></div>
                 <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
@@ -421,8 +421,14 @@
                 <button type="submit" class="transform rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">Create</button>
               </form>
             </section>
-            <div class="modal-action absolute top-4 right-4 mt-0">
-              <label id="close-create-listing" for="create-listing-modal" class="btn">X</label>
+            <div class="modal-action absolute top-2 right-2 mt-0">
+              <label class="sr-only">Close Modal</label>
+              <label
+                id="close-create-listing"
+                for="create-listing-modal"
+                class="rounded bg-dark-green text-white px-4 py-2 font-bold cursor-pointer hover:bg-light-green hover:text-black"
+                >X</label
+              >
             </div>
           </div>
         </div>
@@ -432,7 +438,7 @@
           <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
             <!-- component -->
             <section class="flex w-[30rem] flex-col space-y-10">
-              <h4 class="text-center text-4xl font-medium">Log In</h4>
+              <h4 class="text-center text-3xl font-medium">Log In</h4>
               <form class="flex flex-col gap-4" id="login-form">
                 <div class="error error-container"></div>
                 <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
@@ -465,8 +471,9 @@
                 </p>
               </form>
             </section>
-            <div class="modal-action absolute top-4 right-4 mt-0">
-              <label for="login-modal" class="btn">X</label>
+            <div class="modal-action absolute top-2 right-2 mt-0">
+              <label class="sr-only">Close Modal</label>
+              <label for="login-modal" class="rounded bg-dark-green text-white px-4 py-2 font-bold cursor-pointer hover:bg-light-green hover:text-black">X</label>
             </div>
           </div>
         </div>
@@ -476,7 +483,7 @@
           <div class="modal-box flex items-center justify-center bg-gray-200 text-black">
             <!-- component -->
             <section class="flex w-[30rem] flex-col space-y-10">
-              <h4 class="text-center text-4xl font-medium">Register</h4>
+              <h4 class="text-center text-3xl font-medium">Register</h4>
               <form class="flex flex-col gap-4" id="register-form">
                 <div class="error error-container"></div>
                 <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-main-green">
@@ -519,8 +526,9 @@
                 <button type="submit" class="transform rounded-sm bg-dark-green py-2 font-bold duration-300 hover:bg-light-green text-white">Register</button>
               </form>
             </section>
-            <div class="modal-action absolute top-4 right-4 mt-0">
-              <label for="register-modal" class="btn">X</label>
+            <div class="modal-action absolute top-2 right-2 mt-0">
+              <label class="sr-only">Close Modal</label>
+              <label for="register-modal" class="rounded bg-dark-green text-white px-4 py-2 font-bold cursor-pointer hover:bg-light-green hover:text-black">X</label>
             </div>
           </div>
         </div>
