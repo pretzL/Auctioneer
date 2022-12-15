@@ -1,6 +1,6 @@
 # Auctioneer
 
-![Auctioneer picture](https://user-images.githubusercontent.com/30121693/206851521-820cd915-f972-4500-ac5d-a97d53707b00.png)
+![Auctioneer image](https://user-images.githubusercontent.com/30121693/207898494-807af44b-5f5f-40f2-8890-8c6be09bd63e.png)
 
 
 [Auctioneer](Auctioneer-sp2.netlify.app) is an auction house website where users can add items to be bid on and bid on items other users have put up for auction.
