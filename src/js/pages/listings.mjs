@@ -1,5 +1,4 @@
 import { search } from "../query/search.mjs";
-import { cardHTML } from "../templates/card.mjs";
 import { cardsContainer, errorContainer } from "../util/variables.mjs";
 import { getListings } from "../listings/read.mjs";
 import { options } from "../util/options.mjs";

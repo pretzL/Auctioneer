@@ -1,5 +1,4 @@
 import { sortTimeAsc } from "../components/filters/timeFilter.mjs";
-import { cardHTML } from "../templates/card.mjs";
 import { carouselHTML } from "../templates/carouselCard.mjs";
 import { options } from "../util/options.mjs";
 import {
@@ -20,7 +19,6 @@ import { editListing } from "../listings/update.mjs";
 import { deleteListing } from "../listings/delete.mjs";
 import { buildListings } from "../pages/listings.mjs";
 import { getListings } from "../listings/read.mjs";
-import { observer } from "../components/infiniteScroll.mjs";
 import { addSortListener } from "../pages/index/sortListeners.mjs";
 import { getQueryParams } from "../util/getQueryParams.mjs";
 import { loopCardData } from "../components/loopCardData.mjs";
