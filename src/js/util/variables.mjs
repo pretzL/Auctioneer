@@ -63,12 +63,6 @@ export const bidHistory = document.querySelector("#bid-history");
 export const bidTimer = document.querySelector("#bid-timer");
 export const carouselCardsContainer = document.querySelector("#carousel-cards-container");
 
-// Countdown timer
-export const daysContainer = document.querySelector("#days-value");
-export const hoursContainer = document.querySelector("#hours-value");
-export const minsContainer = document.querySelector("#mins-value");
-export const secContainer = document.querySelector("#sec-value");
-
 // isUserLoggedIn
 export const loggedIn = isUserLoggedIn();
 
