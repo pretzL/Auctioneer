@@ -1,9 +1,10 @@
+import { sortEndsAtDesc } from "../../components/filters/endsAt.mjs";
 import { sortMonth } from "../../components/filters/monthFilter.mjs";
 import { sortTimeAsc } from "../../components/filters/timeFilter.mjs";
 import { sortTitleAsc, sortTitleDesc } from "../../components/filters/titleFilter.mjs";
 import { sortToday } from "../../components/filters/todayFilter.mjs";
 import { loopCardData } from "../../components/loopCardData.mjs";
-import { aToZSort, cardsContainer, monthSort, timeSortButton, todaySort, zToASort } from "../../util/variables.mjs";
+import { aToZSort, cardsContainer, endsAtSort, monthSort, timeSortButton, todaySort, zToASort } from "../../util/variables.mjs";
 
 /**
  * Function which handles adding listeners to sort buttons
@@ -37,6 +38,11 @@ export function addSortListener(data) {
   });
   monthSort.addEventListener("click", () => {
     const sorted = sortMonth(data);
+    cardsContainer.innerHTML = "";
+    loopCardData(sorted, 9);
+  });
+  endsAtSort.addEventListener("click", () => {
+    const sorted = sortEndsAtDesc(data);
     cardsContainer.innerHTML = "";
     loopCardData(sorted, 9);
   });

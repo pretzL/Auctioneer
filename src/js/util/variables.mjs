@@ -81,3 +81,4 @@ export const aToZSort = document.querySelector("#a-to-z-sort");
 export const zToASort = document.querySelector("#z-to-a-sort");
 export const todaySort = document.querySelector("#today-sort");
 export const monthSort = document.querySelector("#month-sort");
+export const endsAtSort = document.querySelector("#endsAt-sort");
