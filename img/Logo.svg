@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="185.924" height="83.945" viewBox="0 0 185.924 83.945">
+  <g id="Logo" transform="translate(-31 -34.055)">
+    <text id="Auctioneer" transform="translate(31 101)" fill="#fff" font-size="29" font-family="Angkor-Regular, Angkor"><tspan x="0" y="0">Auctioneer</tspan></text>
+    <g id="_9be40cee5b0eee1462c82c6964087ff9" data-name="9be40cee5b0eee1462c82c6964087ff9" transform="translate(166.187 34.055)">
+      <g id="Group_1" data-name="Group 1" transform="translate(0 0)">
+        <path id="Path_19" data-name="Path 19" d="M26.277,65.552l12.943,7.471a2.134,2.134,0,0,0,2.133-3.7L28.41,61.856a2.134,2.134,0,1,0-2.133,3.7Zm11.877,9.319L25.211,67.4,17.74,80.344l12.943,7.471ZM14.535,85.889l12.943,7.471a2.134,2.134,0,1,0,2.133-3.7L16.668,82.2a2.132,2.132,0,1,0-2.133,3.691Zm44.6,6.026-23.65-12.42L33.35,83.2,55.933,97.465a3.2,3.2,0,0,0,3.2-5.55ZM35.695,102.7a2.133,2.133,0,0,0-2.133-2.133H14.339a2.13,2.13,0,0,0-2.133,2.133v2.133L10,104.786l.072,2.18H37.828l.1-2.045-2.1-.088a19.164,19.164,0,0,1-.129-2.133Z" transform="translate(-10 -61.569)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
