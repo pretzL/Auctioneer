@@ -20,27 +20,36 @@ import { addSortListener } from "./index/sortListeners.mjs";
 export async function buildListings(query) {
   try {
     let result = [];
+    const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
+    result.push(...data);
+    const data2 = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}&offset=100`, options);
+    result.push(...data2);
+
+    cardsContainer.innerHTML = "";
+
     if (query) {
-      if (query === "all") {
-        const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
-        result.push(...data);
-        const data2 = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}&offset=100`, options);
-        result.push(...data2);
+      if (query !== "all") {
+        result = await search(result, query);
+
+        if (result.length <= 0) {
+          errorContainer.innerHTML = errorMessage("Your search didn't return anything... Try searching for something else!");
+        } else {
+          loopCardData(result, 9);
+
+          observer(result);
+
+          addSortListener(result);
+        }
       } else {
-        const data = await getListings(`${API_BASE_URL}${API_LISTINGS_URL}${listingsParams}`, options);
-        result.push(await search(data, query));
+        loopCardData(result, 9);
+
+        observer(result);
+
+        addSortListener(result);
       }
     } else {
       location.href = "./index.html";
     }
-
-    cardsContainer.innerHTML = "";
-
-    loopCardData(result, 9);
-
-    observer(result);
-
-    addSortListener(result);
   } catch (error) {
     console.log(error);
     errorContainer.innerHTML = errorMessage("Oops, something went wrong... " + error);
