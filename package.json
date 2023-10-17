@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css",
-        "watch": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css --minify --watch & live-server",
+        "watch": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/output.css --watch",
         "test": "npm run test-unit && npm run test-e2e-cli",
         "test-unit": "jest",
         "test-e2e": "cypress open",
@@ -48,6 +48,7 @@
         "dayjs": "^1.11.6",
         "flowbite": "^1.5.4",
         "material-icons": "^1.13.12",
+        "pwa-asset-generator": "^6.3.1",
         "tailwindcss": "^3.3.3",
         "vite": "^4.4.11"
     },
