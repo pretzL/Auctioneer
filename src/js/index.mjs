@@ -60,3 +60,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
         showInstallButton(deferredPrompt);
     }
 });
+
+if (navigator) {
+    console.log("Navigator", navigator);
+}
