@@ -61,6 +61,6 @@ window.addEventListener("beforeinstallprompt", (e) => {
     }
 });
 
-if (navigator) {
+window.addEventListener("DOMContentLoaded", () => {
     console.log("Navigator", navigator);
-}
+});
