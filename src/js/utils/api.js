@@ -1,17 +1,13 @@
-const moviesDb = "https://moviesdatabase.p.rapidapi.com";
-const moviesDbKey = import.meta.env.VITE_MOVIESDATABASE_KEY;
-
-const streamingAvailability = "https://streaming-availability.p.rapidapi.com";
-const streamingAvailabilityKey = import.meta.env.VITE_STREAMINGAVAILABILITY_KEY;
+const BASE_URL = "https://api.noroff.dev/api/v1";
 
 export const api = {
-    getAllTitles: async (params = "") => {
+    register: async (body) => {
         try {
-            const req = await fetch(`${moviesDb}/titles${params}`, {
-                method: "GET",
+            const req = await fetch(`${BASE_URL}/auction/auth/register`, {
+                method: "POST",
+                body: JSON.stringify(body),
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -20,13 +16,13 @@ export const api = {
             throw new Error(error);
         }
     },
-    getATitle: async (id, params = "") => {
+    login: async (body) => {
         try {
-            const req = await fetch(`${moviesDb}/titles/${id}${params}`, {
-                method: "GET",
+            const req = await fetch(`${BASE_URL}/auction/auth/login`, {
+                method: "POST",
+                body: JSON.stringify(body),
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -35,13 +31,12 @@ export const api = {
             throw new Error(error);
         }
     },
-    getRandomTitle: async (params = "") => {
+    getListings: async (params = "") => {
         try {
-            const req = await fetch(`${moviesDb}/titles/random${params}`, {
+            const req = await fetch(`${BASE_URL}/auction/listings${params}`, {
                 method: "GET",
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -50,13 +45,12 @@ export const api = {
             throw new Error(error);
         }
     },
-    getTitleRating: async (id, params = "") => {
+    getListing: async (id, params = "") => {
         try {
-            const req = await fetch(`${moviesDb}/titles/${id}/ratings${params}`, {
+            const req = await fetch(`${BASE_URL}/auction/listings/${id}${params}`, {
                 method: "GET",
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -65,13 +59,13 @@ export const api = {
             throw new Error(error);
         }
     },
-    getSeries: async (id, params = "") => {
+    createListing: async (body) => {
         try {
-            const req = await fetch(`${moviesDb}/titles/series/${id}${params}`, {
-                method: "GET",
+            const req = await fetch(`${BASE_URL}/auction/listings`, {
+                method: "POST",
+                body: JSON.stringify(body),
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -80,13 +74,13 @@ export const api = {
             throw new Error(error);
         }
     },
-    getSeasonsNumber: async (id, params = "") => {
+    updateListing: async (id, body) => {
         try {
-            const req = await fetch(`${moviesDb}/titles/seasons/${id}${params}`, {
-                method: "GET",
+            const req = await fetch(`${BASE_URL}/auction/listings/${id}`, {
+                method: "PUT",
+                body: JSON.stringify(body),
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -95,13 +89,12 @@ export const api = {
             throw new Error(error);
         }
     },
-    getEpisodes: async (id, season, params = "") => {
+    deleteListing: async (id) => {
         try {
-            const req = await fetch(`${moviesDb}/titles/series/${id}/${season}${params}`, {
-                method: "GET",
+            const req = await fetch(`${BASE_URL}/auction/listings/${id}`, {
+                method: "DELETE",
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -110,13 +103,12 @@ export const api = {
             throw new Error(error);
         }
     },
-    getEpisode: async (id, params = "") => {
+    getProfiles: async (params = "") => {
         try {
-            const req = await fetch(`${moviesDb}/titles/episode/${id}${params}`, {
+            const req = await fetch(`${BASE_URL}/auction/profiles${params}`, {
                 method: "GET",
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -125,13 +117,12 @@ export const api = {
             throw new Error(error);
         }
     },
-    getUpcomingTitles: async (params = "") => {
+    getProfile: async (name, params = "") => {
         try {
-            const req = await fetch(`${moviesDb}/titles/x/upcoming${params}`, {
+            const req = await fetch(`${BASE_URL}/auction/profiles/${name}${params}`, {
                 method: "GET",
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -140,13 +131,13 @@ export const api = {
             throw new Error(error);
         }
     },
-    search: async (mode, text, params = "") => {
+    updateProfileMedia: async (name, body) => {
         try {
-            const req = await fetch(`${moviesDb}/titles/search/${mode}/${text}${params}`, {
-                method: "GET",
+            const req = await fetch(`${BASE_URL}/auction/profiles/${name}/media`, {
+                method: "PUT",
+                body: JSON.stringify(body),
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -155,13 +146,12 @@ export const api = {
             throw new Error(error);
         }
     },
-    getActors: async (params = "") => {
+    getListingsByProfile: async (name, params = "") => {
         try {
-            const req = await fetch(`${moviesDb}/actors${params}`, {
+            const req = await fetch(`${BASE_URL}/auction/profiles/${name}/listings${params}`, {
                 method: "GET",
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();
@@ -170,126 +160,12 @@ export const api = {
             throw new Error(error);
         }
     },
-    getActor: async (id, params = "") => {
+    getAllBidsByProfile: async (name, params = "") => {
         try {
-            const req = await fetch(`${moviesDb}/actors/${id}${params}`, {
+            const req = await fetch(`${BASE_URL}/auction/profiles/${name}/bids${params}`, {
                 method: "GET",
                 headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
-                },
-            });
-            const json = await req.json();
-            return json;
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    getRandomActor: async (params = "") => {
-        try {
-            const req = await fetch(`${moviesDb}/actors/random${params}`, {
-                method: "GET",
-                headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
-                },
-            });
-            const json = await req.json();
-            return json;
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    getTitleTypes: async (params = "") => {
-        try {
-            const req = await fetch(`${moviesDb}/titles/utils/titleTypes${params}`, {
-                method: "GET",
-                headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
-                },
-            });
-            const json = await req.json();
-            return json;
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    getGenreTypes: async (params = "") => {
-        try {
-            const req = await fetch(`${moviesDb}/titles/utils/genres${params}`, {
-                method: "GET",
-                headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
-                },
-            });
-            const json = await req.json();
-            return json;
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    getTitlesList: async (params = "") => {
-        try {
-            const req = await fetch(`${moviesDb}/titles/utils/lists${params}`, {
-                method: "GET",
-                headers: {
-                    "X-RapidAPI-Key": moviesDbKey,
-                    "X-RapidAPI-Host": moviesDb.replace(/^https:\/\//, ""),
-                },
-            });
-            const json = await req.json();
-            return json;
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    getCountries: async (params = "") => {
-        try {
-            const req = await fetch(`${streamingAvailability}/countries${params}`, {
-                method: "GET",
-                headers: {
-                    "X-RapidAPI-Key": streamingAvailabilityKey,
-                    "X-RapidAPI-Host": streamingAvailability.replace(/^https:\/\//, ""),
-                },
-            });
-            const json = await req.json();
-            return json;
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    getAvailabilityById: async (id, params = "") => {
-        try {
-            if (params.startsWith("?")) {
-                params = params.replace("?", "&");
-            }
-
-            const req = await fetch(`${streamingAvailability}/get?output_language=en&imdb_id=${id}${params}`, {
-                method: "GET",
-                headers: {
-                    "X-RapidAPI-Key": streamingAvailabilityKey,
-                    "X-RapidAPI-Host": streamingAvailability.replace(/^https:\/\//, ""),
-                },
-            });
-            const json = await req.json();
-            return json;
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    getStreamingChanges: async (services, country, params = "") => {
-        try {
-            if (params.startsWith("?")) {
-                params = params.replace("?", "&");
-            }
-
-            const req = await fetch(`${streamingAvailability}/changes?change_type=new&services=${services}&target_type=show&country=${country}&output_language=en${params}`, {
-                method: "GET",
-                headers: {
-                    "X-RapidAPI-Key": streamingAvailabilityKey,
-                    "X-RapidAPI-Host": streamingAvailability.replace(/^https:\/\//, ""),
+                    "Content-Type": "application/json",
                 },
             });
             const json = await req.json();

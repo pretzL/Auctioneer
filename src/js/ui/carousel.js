@@ -26,14 +26,14 @@ function buildCards(items) {
     const cards = items.map((item) => {
         const anchor = createNewElement("a", { href: `/?view=details&id=${item.id}`, className: "image-container" });
         const img = createNewElement("img", {
-            src: item.primaryImage?.url,
-            alt: item.originalTitleText?.text,
+            src: item.media[0],
+            alt: item.title,
             className: "carousel-image",
             onerror: () => (img.src = "https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png"),
         });
         const label = createNewElement("div", {
             className: "image-label",
-            textContent: `${item.originalTitleText?.text} (${item.releaseYear?.year ? item.releaseYear.year : "N/A"})`,
+            textContent: `${item.title}`,
         });
         anchor.appendChild(img);
         anchor.appendChild(label);

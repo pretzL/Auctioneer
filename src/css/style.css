@@ -107,6 +107,14 @@ button:hover {
     box-shadow: 0 0 1em rgba(255, 255, 255, 0.3);
 }
 
+/* ELEMENTS */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
 .carousel {
     display: flex;
     justify-content: center;
