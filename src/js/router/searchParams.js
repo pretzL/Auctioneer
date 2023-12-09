@@ -4,11 +4,15 @@ export const getSearchParams = () => {
 };
 
 export const setSearchParams = (params) => {
-    const newParams = {
-        ...getSearchParams(),
-        ...params,
-    };
+    const currentParams = new URLSearchParams(window.location.search);
 
-    const searchParams = new URLSearchParams(newParams);
-    window.location.search = searchParams.toString();
+    Object.entries(params).forEach(([key, value]) => {
+        if (value === null) {
+            currentParams.delete(key);
+        } else {
+            currentParams.set(key, value);
+        }
+    });
+
+    window.location.search = currentParams.toString();
 };

@@ -1,7 +1,13 @@
+import { setSearchParams } from "../router/searchParams";
 import { createNewElement } from "../utils";
 
 export function createCard(data) {
-    const card = createNewElement("a", { href: `/?view=details&id=${data.id}`, className: "card" });
+    const card = createNewElement("a", {
+        className: "card",
+        onclick: () => {
+            setSearchParams({ view: "details", id: data.id });
+        },
+    });
 
     const img = createNewElement("img", {
         src: data.media[0],

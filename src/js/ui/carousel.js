@@ -1,3 +1,4 @@
+import { setSearchParams } from "../router/searchParams";
 import { createNewElement } from "../utils";
 
 export function initCarousel(items) {
@@ -24,7 +25,12 @@ export function initCarousel(items) {
 
 function buildCards(items) {
     const cards = items.map((item) => {
-        const anchor = createNewElement("a", { href: `/?view=details&id=${item.id}`, className: "image-container" });
+        const anchor = createNewElement("a", {
+            className: "image-container",
+            onclick: () => {
+                setSearchParams({ view: "details", id: item.id });
+            },
+        });
         const img = createNewElement("img", {
             src: item.media[0],
             alt: item.title,
