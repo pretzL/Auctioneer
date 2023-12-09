@@ -205,6 +205,36 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.card {
+    background-color: #161616;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-image {
+    width: 100%;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.listings-container {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
 .details-container img {
     width: 100%;
 }
