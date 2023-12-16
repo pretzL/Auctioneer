@@ -1,7 +1,7 @@
 import { setSearchParams } from "../router/searchParams";
 import { createNewElement } from "../utils";
 
-export function initCarousel(items) {
+export function initCarousel(cards) {
     const carousel = createNewElement("div", { className: "carousel" });
 
     const leftButton = createNewElement("button", { className: "arrow left-arrow", onclick: () => moveCarousel(leftButton, carouselContainer, cards) });
@@ -9,7 +9,6 @@ export function initCarousel(items) {
     leftButton.appendChild(leftChevron);
 
     const carouselContainer = createNewElement("div", { className: "carousel-container" });
-    const cards = buildCards(items);
     cards.forEach((card) => carouselContainer.appendChild(card));
 
     const rightButton = createNewElement("button", { className: "arrow right-arrow", onclick: () => moveCarousel(rightButton, carouselContainer, cards) });
@@ -23,7 +22,7 @@ export function initCarousel(items) {
     return carousel;
 }
 
-function buildCards(items) {
+export function buildCards(items) {
     const cards = items.map((item) => {
         const anchor = createNewElement("a", {
             className: "image-container",
