@@ -11,5 +11,8 @@
   "devDependencies": {
     "material-icons": "^1.13.12",
     "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10"
   }
 }
