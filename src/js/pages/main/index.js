@@ -1,5 +1,5 @@
 import { createCard } from "../../ui/card";
-import { initCarousel } from "../../ui/carousel";
+import { buildCards, initCarousel } from "../../ui/carousel";
 import { api, createNewElement } from "../../utils";
 
 export async function buildMain() {
@@ -7,7 +7,8 @@ export async function buildMain() {
 
     const endingSoonTitle = createNewElement("h2", { className: "carousel-title", textContent: "Ending Soon" });
     const endingSoonListings = await api.getListings("?sort=endsAt&sortOrder=asc&limit=28&_active=true");
-    const carouselEndingSoon = initCarousel(endingSoonListings);
+    const endingSoonCarouselCards = buildCards(endingSoonListings);
+    const carouselEndingSoon = initCarousel(endingSoonCarouselCards);
 
     const listingsTitle = createNewElement("h2", { className: "carousel-title", textContent: "Listings" });
     const listings = await api.getListings("?limit=50&_active=true");
