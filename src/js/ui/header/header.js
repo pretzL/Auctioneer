@@ -3,6 +3,7 @@ import { createNewElement } from "../../utils";
 import { createNavItem } from "./navItems";
 
 export async function header() {
+    const nav = createNewElement("nav", { className: "max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" });
     const logo = createNewElement("img", {
         src: "/Logo.png",
         alt: "Logo",
